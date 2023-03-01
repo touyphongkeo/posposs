@@ -98,6 +98,35 @@
     </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <EditText
+            android:id="@+id/etxtSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_border"
+            android:drawableLeft="@drawable/ic_search"
+            android:ems="10"
+            android:fontFamily="@font/notosanslaoui_regular"
+            android:hint="ຄົ້ນຫາ"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/img_scanner"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/barcode" />
+    </LinearLayout>
 
 
 
@@ -106,23 +135,6 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
-
-        <EditText
-            android:layout_marginTop="5dp"
-            android:id="@+id/etxtSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/round_border"
-            android:drawableLeft="@drawable/ic_baseline_search_24"
-            android:hint=" ຄົ້ນຫາ..."
-            android:fontFamily="@font/notosanslaoui_regular"
-            android:padding="12dp"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/textColorPrimaryDark"
-            android:textSize="16sp" />
-
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer_view_container"

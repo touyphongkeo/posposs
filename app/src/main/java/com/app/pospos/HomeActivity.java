@@ -135,6 +135,8 @@ public class HomeActivity extends BaseActivity {
             }
         });
 
+
+
         card_table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

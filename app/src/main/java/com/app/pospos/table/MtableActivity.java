@@ -45,7 +45,8 @@ public class MtableActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//for back button
         String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(new Date());
 
-        getSupportActionBar().setTitle("ລາຍການໂຕະ"+currentDate);
+      //  getSupportActionBar().setTitle("ລາຍການໂຕະ"+currentDate);
+        getSupportActionBar().setTitle("ລາຍການໂຕະ");
 
         mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
         mSwipeRefreshLayout =findViewById(R.id.swipeToRefresh);

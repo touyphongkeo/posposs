@@ -57,7 +57,7 @@ public class CatgoryAdapter extends RecyclerView.Adapter<CatgoryAdapter.MyViewHo
     @NonNull
     @Override
     public CatgoryAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cartgory_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_item, parent, false);
         return new MyViewHolder(view);
     }
 

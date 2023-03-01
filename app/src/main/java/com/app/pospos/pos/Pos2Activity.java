@@ -73,7 +73,9 @@ public class Pos2Activity extends BaseActivity {
 
         namess = findViewById(R.id.namess);
         img_back = findViewById(R.id.img_back);
-        namess.setText("ເລກໂຕະ: "  +Tbname);
+       // namess.setText("ເລກໂຕະ: "  +Tbname);
+        namess.setText("ຂາຍສີນຄ້າ: "  +Tbname);
+       // namess.setText("ເລກໂຕະ: ");
         table = findViewById(R.id.table);
         table.setText(SALE_BILL);
         mShimmerViewContainer = findViewById(R.id.shimmer_view_container);

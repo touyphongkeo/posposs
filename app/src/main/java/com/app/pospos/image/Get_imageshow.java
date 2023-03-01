@@ -20,6 +20,7 @@ import com.app.pospos.database.DatabaseAccess;
 import com.app.pospos.model.Product;
 import com.app.pospos.networking.ApiClient;
 import com.app.pospos.networking.ApiInterface;
+import com.app.pospos.pos.Pos2Activity;
 import com.app.pospos.pos.PosActivity;
 import com.app.pospos.utils.BaseActivity;
 import com.app.onlinesmartpos.R;
@@ -76,7 +77,7 @@ public class Get_imageshow extends BaseActivity {
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Get_imageshow.this, PosActivity.class);
+                Intent i = new Intent(Get_imageshow.this, Pos2Activity.class);
                 startActivity(i);
             }
         });

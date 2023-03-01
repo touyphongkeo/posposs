@@ -74,6 +74,7 @@ public class PosActivity extends BaseActivity {
         namess = findViewById(R.id.namess);
         img_back = findViewById(R.id.img_back);
         namess.setText("ຂາຍສີນຄ້າ: "  +Tbname);
+      //  namess.setText("ຂາຍສີນຄ້າ");
         table = findViewById(R.id.table);
         table.setText(currentDate+"XXX XXX");
         mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
@@ -134,7 +135,7 @@ public class PosActivity extends BaseActivity {
 //====================================select product============================================================
         swipeToRefreshs.setOnRefreshListener(() -> {
             if (utils.isNetworkAvailable(PosActivity.this)) {
-                getProduct("");
+               getProduct("");
             } else{
                 Toasty.error(PosActivity.this, R.string.no_network_connection, Toast.LENGTH_SHORT).show();
             }
@@ -252,7 +253,6 @@ public class PosActivity extends BaseActivity {
 
 
     }//ກັບຄືນ
-
 
     //login method
 

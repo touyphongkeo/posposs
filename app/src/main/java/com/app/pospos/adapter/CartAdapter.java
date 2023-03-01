@@ -219,7 +219,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
     TextView txt_item_name,txt_weight,txtQtyNumber,txtPlus,txt_minus,txt_price;
     ImageView img_delete;
-    CircleImageView cart_product_image;
+    ImageView cart_product_image;
     public MyViewHolder(View itemView) {
     super(itemView);
             txt_item_name = itemView.findViewById(R.id.txt_item_name);

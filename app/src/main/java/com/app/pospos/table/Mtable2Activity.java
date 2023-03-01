@@ -71,7 +71,8 @@ public class Mtable2Activity extends BaseActivity {
         txtNoProducts.setVisibility(View.GONE);
         String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(new Date());
 
-        namess.setText("ລາຍການໂຕະ "+"ວັນທີ:"+currentDate);
+        //namess.setText("ລາຍການໂຕະ "+"ວັນທີ:"+currentDate);
+        namess.setText("ລາຍການໂຕະ ");
 
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override

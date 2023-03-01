@@ -91,10 +91,7 @@
                     android:textColor="@android:color/holo_red_light"
                     android:textSize="10sp" />
             </RelativeLayout>
-
         </LinearLayout>
-
-
     </LinearLayout>
 
 
