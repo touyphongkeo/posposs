@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">ຕັ້ງຄ່າ</string>
+    <string name="suppliers">ຜູ້ສະໜອງ</string>
+    <string name="customers">ລູກຄ້າ</string>
+    <string name="pos">ຂາຍສິນຄ້າ</string>
+    <string name="expense">ລາຍຈ່າຍ</string>
+    <string name="report">ລາຍງານ</string>
+    <string name="all_orders">ລາຍການຂາຍ</string>
+    <string name="all_sales">ລາຍການຂາຍ</string>
+    <string name="daily">ປະຈຳວັນ</string>
+    <string name="monthly">ປະຈຳເດືອນ</string>
+    <string name="yearly">ປະຈຳປີ</string>
+    <string name="customer_name">ຊື່ລູກຄ້າ</string>
+    <string name="customer_cell">ເບີໂທລະສັບ</string>
+    <string name="customer_email">Email ລູກຄ້າ</string>
+    <string name="customer_address">ທີ່ຢູ່ລູກຄ້າ</string>
+    <string name="add_customer">ເພີ່ມລູກຄ້າ</string>
+    <string name="enter_customer_name">ປ້ອນຊື່ລູກຄ້າ</string>
+    <string name="enter_customer_cell">ປ້ອນເບີໂທລະສັບ</string>
+    <string name="enter_customer_address">ປ້ອນທີ່ຢູ່ລູກຄ້າ</string>
+    <string name="customer_successfully_added">ເພີ່ມລູກຄ້າສຳເລັດ</string>
+
+    <string name="all_customer">ຂໍ້ມູນລູກຄ້າ</string>
+    <string name="all_suppliers">ຂໍ້ມູນຜູ້ສະໜອງ</string>
+
+    <string name="add_suppliers">ເພີ່ມຜູ້ສະໜອງ</string>
+    <string name="enter_suppliers_name">ປ້ອນຊື່ຜູ້ສະໜອງ</string>
+    <string name="enter_suppliers_contact_person_name">ປ້ອນຊື່ຜູ້ປະສານງານ</string>
+    <string name="enter_suppliers_cell">ປ້ອນເບີໂທລະສັບ</string>
+    <string name="enter_valid_email">ປ້ອນ email </string>
+    <string name="enter_suppliers_address">ປ້ອນທີ່ຢູ່ປະຈຸບັດ</string>
+    <string name="suppliers_successfully_added">ເພີ່ມຜູ້ສະໜອງສຳເລັດ</string>
+    <string name="failed">ເກີດຂໍ້ຜິດຜາດ</string>
+
+    <string name="product_name_cannot_be_empty">ຊື່ສິນຄ້າບໍ່ໃຫ້ປະຫວ່າງ!</string>
+    <string name="product_code_cannot_be_empty">ລະຫັດສິນຄ້າບໍ່ໃຫ້ປະຫວ່າງ!</string>
+    <string name="product_category_cannot_be_empty">ປະເພດສິນຄ້າບໍ່ໃຫ້ປະຫວ່າງ!</string>
+    <string name="product_sell_price_cannot_be_empty">ລາຍຄາຂາຍບໍ່ໃຫ້ປະຫວ່າງ!</string>
+    <string name="product_supplier_cannot_be_empty">ຊື່ຜູ້ສະໜອງບໍ່ໃຫ້ປະຫວ່າງ!</string>
+    <string name="product_weight_cannot_be_empty">ນ້ຳໜັກບໍ່ໃຫ້ປະຫວ່າງ!</string>
+    <string name="product_successfully_added">ເພີ່ມສິນຄ້າສຳເລັດ</string>
+    <string name="something_went_wrong">ເກິດຄວາມຜິດຜາດບາງຢ່າງ</string>
+
+
+    <string name="add_product">ເພີ່ມສິນຄ້າ</string>
+    <string name="product_details">ລາຍລະອຽດສິນຄ້າ</string>
+    <string name="product_code">ລະຫັດສິນຄ້າt</string>
+    <string name="product_description">ເນື້ອໃນລະອຽດ</string>
+    <string name="unit_product_sell_price">ລາຄາຊື້</string>
+    <string name="product_sell_price">ລາຄາຂາຍ</string>
+    <string name="product_weight">ນ້ຳໜັກ</string>
+    <string name="select_product_weight_unit">ເລືອກຫົວໜ່ວຍ</string>
+    <string name="product_weight_unit">ຫົວໜ່ວຍ</string>
+    <string name="select_supplier">ເລືອກຜູ້ສະໜອງ</string>
+    <string name="product_supplier">ຜູ້ສະໜອງ</string>
+    <string name="choose_product_image">ເລືອກຮູບສິນຄ້າ</string>
+
+
+    <string name="year_2020">ປີ 2020</string>
+    <string name="total_sales">ລວມມູນຄ່າ : </string>
+    <string name="search_here">ຄົ້ນຫາ. . ..</string>
+    <string name="no_order_found">ບໍ່ມີຂໍ້ມູນການຂາຍ</string>
+    <string name="no_product_found">ບໍ່ມີຜະລິດຕະພັນ</string>
+    <string name="submit_order">ບັນທຶກການຂາຍ</string>
+    <string name="all_sales_report">ລາຍງານການຂາຍ</string>
+    <string name="all_expense_report">ລາຍງານລາຍຈ່າຍ</string>
+    <string name="monthly_sales_graph">ລາຍງານສະຖິຕິການຂາຍປະຈຳເດືອນ</string>
+    <string name="monthly_expense_graph">ລາຍງານສະຖິຕິລາຍຈ່າຍປະຈຳເດືອນ</string>
+    <string name="no_data_found">ບໍ່ມີຂໍ້ມູນ</string>
+
+    <string name="shop_information">ຂໍ້ມູນສຳນັກງານ</string>
+    <string name="shop_name">ຊື່ສຳນັກງານ</string>
+    <string name="shop_contact_number">ເບີໂທລະສັບ</string>
+    <string name="shop_email">ທີ່ຢູ່Email</string>
+    <string name="shop_address">ທີ່ຢູ່ສຳນັກງານ</string>
+    <string name="edit">ແກ້ໄຂ</string>
+    <string name="update_information">ບັນທຶກ</string>
+    <string name="product_category">ປະເພດສິນຄ້າ</string>
+    <string name="cancel">ຍົກເລີກ</string>
+    <string name="payment">ການຊຳລະຄ່າສິນຄ້າ</string>
+    <string name="submit">ບັນທຶກ</string>
+    <string name="add_to_cart">ເລືອກສິນຄ້າ</string>
+    <string name="product_name">ຊື່ສິນຄ້າ</string>
+    <string name="weight">ນ້ຳໜັກ:</string>
+    <string name="price">ລາຄາ</string>
+
+    <string name="supplier_name">ຊື່ຜູ້ສະໜອງ</string>
+    <string name="supplier_contact_person">ຜູ້ປະສານງານ</string>
+
+    <string name="supplier_cell">ເບີໂທລະສັບ</string>
+
+    <string name="supplier_email">ທີ່ຢູ່ Email</string>
+
+    <string name="supplier_address">ທີ່ຢູ່ຜູ້ສະໜອງ</string>
+
+    <string name="add_supplier">ເພີ່ມຜູ້ສະໜອງ</string>
+    <string name="monthly_expense_in_graph">ລາຍງານສະຖິຕິລາຍຈ່າຍປະຈຳເດືອນ</string>
+    <string name="year">ປີ</string>
+    <string name="monthly_expense_report">ລາຍງານຄ່າໃຊ້ຈ່າຍປະຈຳເດືອນ</string>
+    <string name="total_expense">ລວມມູນຄ່າ: </string>
+    <string name="monthly_sales_report">ລາຍງານການຂາຍປະຈຳເດືອນ</string>
+    <string name="all_expense">ລາຍການຂໍ້ມູນລາຍຈ່າຍ</string>
+    <string name="yes">ຕົກລົງ</string>
+    <string name="all_product">ລາຍການຂໍ້ມູນສິນຄ້າ</string>
+    <string name="product_cart">ສິນຄ້າທີ່ເລືອກ</string>
+    <string name="no_product_in_cart">ບໍ່ມີສິນຄ້າເລືອກ</string>
+    <string name="select_payment_method">ເລືອກຮູບແບບການຈ່າຍ</string>
+    <string name="select_order_type">ເລືອກຮູບການຂາຍ</string>
+    <string name="select_customer">ເລືອກລູກຄ້າ</string>
+    <string name="order_history">ລາຍການຂາຍ</string>
+    <string name="order_details">ລາຍລະອຽດການຂາຍ</string>
+    <string name="total_price">ລວມເງິນຕ້ອງຈ່າຍ: </string>
+    <string name="add_expense">ເພີ່ມລາຍຈ່າຍ</string>
+    <string name="product_removed_from_cart">ສິນຄ້າຍົກເລີກການເລືອກ</string>
+    <string name="backup_completed_successfully">ສຳຮອງຂໍ້ມູນສຳເລັດ</string>
+    <string name="unable_to_backup_database_retry">ບໍ່ສາມາດສຳຮອງຂໍ້ມູນໄດ້. ລົງອິກຄັ້ງ</string>
+    <string name="database_Import_completed">ດືງຂໍ້ມູນເຂົ້າລະບົບສຳເລັດ</string>
+    <string name="unable_to_import_database_retry">ດືງຂໍ້ມູນບໍ່ສຳເລັດ. ລອງອິກຄັ້ງ</string>
+    <string name="want_to_delete_customer">ທ່ານຕ້ອງການລຶບລູກຄ້າບໍ?</string>
+    <string name="customer_deleted">ລຶບຂໍ້ມູນລູກຄ້າ</string>
+    <string name="note">ໝາຍເຫດ: </string>
+    <string name="want_to_delete_expense">ທ່ານຕ້ອງການລຶບຂໍ້ມູນລາຍຈ່າຍບໍ ?</string>
+    <string name="expense_deleted"> ລຶບຂໍ້ມູນລາຍຈ່າຍ</string>
+    <string name="payment_method">ຮູບການຈ່າຍ:</string>
+    <string name="want_to_delete_supplier">ທ່ານຕ້ອງການລຶບຜູ້ສະໜອງບໍ ?</string>
+    <string name="supplier_deleted">ລຶບຂໍ້ມູນຜູ້ສະໜອງ</string>
+    <string name="quantity">ຈຳນວນ:</string>
+    <string name="sell_price">ລາຄາຂາຍ:</string>
+    <string name="want_to_delete_product">ທ່ານຕ້ອງການລຶບລູກຄ້າບໍ ?</string>
+    <string name="product_deleted">ລຶບຂໍ້ມູນລູກຄ້າ</string>
+    <string name="product_added_to_cart">ເລືອກສິນຄ້າ</string>
+    <string name="product_already_added_to_cart">ສິນຄ້າຖຶກເລືອກແລ້ວ</string>
+    <string name="product_added_to_cart_failed_try_again">ເລືອກສິນຄ້າບໍ່ສຳເລັດ! ລອງອີກຄັ້ງ</string>
+    <string name="press_once_again_to_exit">ກົດອີກຄັ້ງໜື່ງເພື່ອອອກຈາກລະບົບ!</string>
+    <string name="order_deleted">ລຶບຂໍ້ມູນການຂາຍ</string>
+    <string name="want_to_delete_order">ທ່ານຕ້ອງການລຶບຂໍ້ມູນການຂາຍບໍ ?</string>
+    <string name="type_something_to_search">ປ້ອນຂໍ້ມູນເພື່ອຄົ້ນຫາ</string>
+    <string name="expense_name_cannot_be_empty">ລາຍການຈ່າຍບໍ່ໃຫ້ປະຫ່າງ</string>
+    <string name="expense_amount_cannot_be_empty">ມູນຄ່າຈ່າຍບໍ່ໃຫ້ປະຫວ່າງ</string>
+    <string name="expense_successfully_added">ເພີ່ມລາຍຈ່າຍສຳເລັດ</string>
+
+
+    <string name="qr_barcode_scanner">ສະແກນ QR ຫຼື Barcode</string>
+    <string name="camera_permission">ສິດນຳໃຊ້ກ້ອງ</string>
+    <string name="error">ຂໍ້ຜິດຜາດ</string>
+    <string name="order_receipt">ຮັບບິນຂາຍ</string>
+    <string name="print">ພິມບິນ</string>
+    <string name="share">ແບ່ງປັນ</string>
+    <string name="open_pdf">ເປີດເປັນ PDF</string>
+    <string name="open_with_external_pdf_reader">ເປີດເປັນ PDF</string>
+    <string name="generate_pdf_receipt2">ພິມບິນຂາຍ</string>
+    <string name="generate_pdf_receipt">ພິມບິນຂາຍ</string>
+    <string name="edit_customer">ແກ້ໄຂຂໍ້ມູນລູກຄ້າ</string>
+    <string name="edit_suppliers">ແກ້ໄຂຂໍ້ມູນຜູ້ສະໜອງ</string>
+    <string name="expense_name">ລາຍການຈ່າຍ</string>
+    <string name="expense_note_if_any">ໝາຍເຫດການຈ່າຍ (ຖ້າມີ)</string>
+    <string name="expense_note">ໝາຍເຫດ</string>
+    <string name="expense_amount">ມູນຄ່າການຈ່າຍ</string>
+    <string name="expense_date">ວັນທີຈ່າຍ</string>
+    <string name="expense_time">ເວລາຈ່າຍ</string>
+    <string name="edit_expense">ແກ້ໄຂຂໍ້ມູນການຈ່າຍ</string>
+    <string name="update_successfully">ແກ້ໄຂສຳເລັດ</string>
+    <string name="categories">ປະເພດສິນຄ້າ</string>
+    <string name="category_name">ຊື່ປະເພດສິນຄ້າ</string>
+    <string name="payment_method_deleted">ລຶບຮູບແບບການຈ່າຍ</string>
+    <string name="want_to_delete">ທ່ານຕ້ອງາການລຶບບໍ ?</string>
+    <string name="all_payment_method">ຂໍ້ມູນລາຍການຮູບແບບການຈ່າຍ</string>
+    <string name="payment_method_name">ຮູບແບບການຈ່າຍ</string>
+    <string name="add_payment_method">ເພີ່ມຮູບແບບການຈ່າຍ</string>
+    <string name="enter_payment_method_name">ປ້ອນຂໍ້ມູນຮູບແບບການຈ່າຍ</string>
+    <string name="successfully_added">ເພີ່ມສຳເລັດ</string>
+    <string name="update_payment_method">ແກ້ໄຂຮູບແບບການຈ່າຍ</string>
+    <string name="successfully_updated">ແກ້ໄຂສຳເລັດ</string>
+    <string name="payment_methods">ຮູບແບບການຈ່າຍ</string>
+
+
+    <string name="password">ລະຫັດຜ່ານ</string>
+    <string name="login">ເຂົ້າລະບົບ</string>
+    <string name="please_enter_password">ກະລຸນາປ້ອນລະຫັດຜ່ານ</string>
+    <string name="logout">ອອກລະບົບ</string>
+    <string name="you_dont_have_permission_to_access_this_page">ບໍ່ໄດ້ຮັບສິດເຂົ້າລະບົບນີ້</string>
+    <string name="about_us">ກ່ຽວກັບລະບົບ</string>
+    <string name="want_to_logout_from_app">ທ່ານຕ້ອງການອອກຈາກລະບົບບໍ?</string>
+    <string name="delete">ລຶບອອກ</string>
+    <string name="tax">ອາກອນ</string>
+    <string name="tax_in_percentage">ອາກອນ (%)</string>
+    <string name="total_tax">ມູນຄ່າອາກອນ</string>
+    <string name="sub_total">ລວມຍ່ອຍ:</string>
+    <string name="discount">ສະຫຼຸດ:</string>
+    <string name="discount_cant_be_greater_than_total_price">ສ່ວນຫຼຸດບໍ່ຄວນໃຫຍ່ກວ່າມູນຄ່າລວມ</string>
+    <string name="net_sales">ລວມຍອດຂາຍ</string>
+    <string name="total_discount">ລວມສ່ວນຫຼຸດ</string>
+    <string name="table_number">ຕາຕະລາງທີ</string>
+    <string name="order_success">ການຂາຍສຳເລັດ</string>
+    <string name="order_successfully_done">ການຂາຍສຳເລັດສົມບູນ</string>
+    <string name="email">Email</string>
+    <string name="please_wait">ກະລຸນາລໍຖ້າ. . .</string>
+    <string name="no_network_connection">ບໍ່ສາມາດເຊື່ອມຕໍ່ອິນເຕີເນັດ</string>
+    <string name="products">ສິນຄ້າ</string>
+    <string name="stock">ສາງສິນຄ້າ</string>
+    <string name="out_of_stock">ສິນຄ້າໝົດ</string>
+    <string name="stock_not_available_please_update_stock">ສິນຄ້າໃນສາງບໍ່ພຽງພໍ. ກະລຸນາເພີ່ມສິນຄ້າໃນສາງ</string>
+    <string name="low_stock">ສິນຄ້າຂາດສາງ</string>
+    <string name="not_available">ບໍ່ທັນພ້ອມ</string>
+    <string name="in_stock">ມີສິນຄ້າໃນສາງ</string>
+    <string name="product_stock">ສິນຄ້າໃນສາງ</string>
+    <string name="please_input_product_stcok">ກະລຸນາເພີ່ມສິນຄ້າໃນສາງ</string>
+    <string name="invalid_email_or_password">Email ບໍ່ຖືກຕ້ອງ!</string>
+    <string name="view_all_orders">ເບີ່ງການຂາຍທັງໝົດ</string>
+    <string name="order_note">ໝາຍເຫດ</string>
+    <string name="weekly">ປະຈຳອາທິດ</string>
+    <string name="all">ທັງໝົດ</string>
+    <string name="shop_closed_now">ປິດຮ້ານແລ້ວ!</string>
+    <string name="reset">ລົບລ້າງ</string>
+
+
+    <string name="connect_fail">ເຊື່ອມຕໍ່ບໍ່ໄດ້</string>
+    <string name="connect_lost">ເຊື່ອມຕໍ່ບໍ່ຜ່ານ</string>
+    <string name="not_connected">ບໍ່ໄດ້ເຊື່ອມຕໍ່</string>
+    <string name="title_paired_devices">ກັບຄູ່ອຸປະກອນ</string>
+    <string name="title_other_devices">ລາຍການອຸປະກອນ</string>
+    <string name="button_scan">ສະແກນ</string>
+    <string name="none_paired">ຍົກເລີກຈັບຄູ່</string>
+    <string name="scanning">Searching&#8230;</string>
+    <string name="select_device">ເລືອກອຸກອນ</string>
+    <string name="none_found">ບໍ່ມີຂໍ້ມູນ</string>
+    <string name="connected">ເຊື່ອມຕໍ່ສຳເລັດ</string>
+    <string name="bluetooth_not_available">Bluetooth ບໍ່ເປີດ</string>
+    <string name="turnon_bluetooth">ກະລຸນາເປີດ Bluetooth</string>
+    <string name="pic_load_error">Load ຮູບບໍ່ໄດ້</string>
+    <string name="print_succ">ພິມສຳເລັດ</string>
+    <string name="print_error">ພິມບໍ່ສຳເລັດ</string>
+
+
+
+    <string name="units">ຫົວໜ່ວຍ</string>
+    <string name="unit_name">ຊື່ຫົວໜ່ວຍ</string>
+    <string name="add_unit">ເພີ່ມຫົວໜ່ວຍ</string>
+    <string name="unit_already_exists">ຫົວໜ່ວຍມີແລ້ວ!</string>
+    <string name="unit_deleted">ການຂໍ້ມູນຫົວໜ່ວຍ</string>
+    <string name="update_unit_name">ແກ້ໄຂຫົວໜ່ວຍ</string>
+    <string name="add_category">ເພີ່ມປະເພດສິນຄ້າ</string>
+    <string name="already_exists">ຂໍ້ມູນມີແລ້ວ</string>
+    <string name="category_deleted">ລຶບຂໍ້ມູນປະເພດຫົວໜ່ວຍ</string>
+    <string name="update_category">ບັນທຶກ</string>
+    <string name="product_buy_price">ລາຄາຊື້</string>
+    <string name="product_buy_price_can_not_be_empty">ລາຄາຊື້ບໍ່ໃຫ້ປະຫວ່າງ</string>
+
+
+</resources>
