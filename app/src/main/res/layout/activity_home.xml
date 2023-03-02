@@ -312,7 +312,7 @@
                                                     android:layout_marginBottom="2dp"
                                                     android:background="@drawable/circle_shape"
                                                     android:padding="20dp"
-                                                    android:src="@drawable/nbvc" />
+                                                    android:src="@drawable/tables" />
                                             </LinearLayout>
 
 
@@ -574,7 +574,7 @@
                                                     android:layout_marginBottom="2dp"
                                                     android:background="@drawable/circle_shape"
                                                     android:padding="20dp"
-                                                    android:src="@drawable/nbsdd" />
+                                                    android:src="@drawable/tyg" />
                                             </LinearLayout>
 
                                         </RelativeLayout>
@@ -649,7 +649,7 @@
                                                     android:gravity="center"
                                                     android:padding="5dp"
 
-                                                    android:text="ຂໍ້ມູນຜູ້ໃຊ້"
+                                                    android:text="ຊ່ວຍເຫຼື່ອ"
                                                     android:textAllCaps="true"
                                                     android:textColor="#FFF"
                                                     android:textSize="18sp"
@@ -664,7 +664,7 @@
                                                     android:layout_marginBottom="2dp"
                                                     android:background="@drawable/circle_shape"
                                                     android:padding="20dp"
-                                                    android:src="@drawable/usernames"
+                                                    android:src="@drawable/bbdss"
                                                     />
                                             </LinearLayout>
 

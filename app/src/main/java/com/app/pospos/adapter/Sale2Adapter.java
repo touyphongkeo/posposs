@@ -180,7 +180,7 @@ public class Sale2Adapter extends RecyclerView.Adapter<Sale2Adapter.MyViewHolder
         TextView txt_item_name,txt_weight,txt_price,status,txt_number,tabel;
         ImageView img_delete;
 
-        CircleImageView cart_product_image;
+        ImageView cart_product_image;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

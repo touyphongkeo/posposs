@@ -38,6 +38,7 @@
         <activity android:name="com.app.pospos.pos.Product2Cart"/>
         <activity android:name="com.app.pospos.pos.Pos2Activity" />
         <activity android:name="com.app.pospos.category.CategoryActivity" />
+        <activity android:name="com.app.pospos.category.Edit_category" />
 
         <activity android:name="com.app.pospos.HomeActivity" />
         <activity android:name="com.app.pospos.SplashActivity">

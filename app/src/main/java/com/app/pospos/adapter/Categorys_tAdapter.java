@@ -1,8 +1,5 @@
 package com.app.pospos.adapter;
-
-
 import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Slidetop;
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -14,30 +11,29 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.app.onlinesmartpos.R;
+import com.app.pospos.Constant;
+import com.app.pospos.category.Edit_category;
+import com.app.pospos.image.Get_imageshow;
 import com.app.pospos.model.Catgory;
+import com.app.pospos.networking.ApiClient;
+import com.app.pospos.networking.ApiInterface;
 import com.app.pospos.utils.Utils;
 import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
-
 import java.util.List;
-
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+import static com.app.pospos.ClassLibs.Chart_id;
 public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.MyViewHolder> {
-
-
     private List<Catgory> customerData;
     private Context context;
     Utils utils;
-
 
     public Categorys_tAdapter(Context context, List<Catgory> customerData) {
         this.context = context;
         this.customerData = customerData;
         utils=new Utils();
-
     }
 
 
@@ -51,29 +47,22 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull final Categorys_tAdapter.MyViewHolder holder, int position) {
-
         final String Id = customerData.get(position).getID();
-        String chart_id = customerData.get(position).getCategory_id();
+        String 	category_id = customerData.get(position).getCategory_id();
         String chart_name = customerData.get(position).getCategory_name();
-
         holder.txtCustomerName.setText("ລະຫັດ: "+Id);
-        holder.txtCell.setText("ລະຫັດໜວດໜູ່: "+chart_id);
+        holder.txtCell.setText("ລະຫັດໜວດໜູ່: "+category_id);
         holder.txtEmail.setText("ປະເພດ: "+chart_name);
 
-
-
-
 //
-     /*   holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+        holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Chart_id = chart_id;
-
+                Chart_id = category_id;
                 NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(context);
                 dialogBuilder
                         .withTitle("ຄຳເຕືອນ")
-                        .withMessage("ທ່ານຕ້ອງການລົບຂໍ້ມູນບັນຊີນີ້ ແທ້ ຫຼື ບໍ ?")
+                        .withMessage("ທ່ານຕ້ອງການລົບຂໍ້ມູນນີ້ ແທ້ ຫຼື ບໍ ?")
                         .withEffect(Slidetop)
                         .withDialogColor("#2979ff") //use color code for dialog
                         .withButton1Text("ຕົກລົງ")
@@ -81,15 +70,11 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
                         .setButton1Click(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-
-
                                 if (utils.isNetworkAvailable(context)) {
-                                    deletechart(Id);
+                                    deletecategory(category_id);
                                     customerData.remove(holder.getAdapterPosition());
                                     dialogBuilder.dismiss();
-                                }
-                                else
-                                {
+                                } else {
                                     dialogBuilder.dismiss();
                                     Toasty.error(context, "ບໍ່ສາມາດເຊື່ອມຕໍ່ອິນເຕີເນັດ", Toast.LENGTH_SHORT).show();
                                 }
@@ -98,16 +83,28 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
                         .setButton2Click(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-
                                 dialogBuilder.dismiss();
                             }
                         })
-                        .show();
+                .show();
+            }
+        });
 
+
+
+
+
+        holder.imgCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Chart_id = category_id;
+                Intent intent=new Intent(context, Edit_category.class);
+                intent.putExtra("category_id",category_id);
+                context.startActivity(intent);
 
             }
         });
-*/
+
     }
 
     @Override
@@ -146,12 +143,12 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
 
 
     //delete from server
-  /*  private void deletechart(String id) {
+    private void deletecategory(String category_id) {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<chartaccount> call = apiInterface.deletechart_account(id);
-        call.enqueue(new Callback<chartaccount>() {
+        Call<Catgory> call = apiInterface.deleteCategory(category_id);
+        call.enqueue(new Callback<Catgory>() {
             @Override
-            public void onResponse(@NonNull Call<chartaccount> call, @NonNull Response<chartaccount> response) {
+            public void onResponse(@NonNull Call<Catgory> call, @NonNull Response<Catgory> response) {
 
 
                 if (response.isSuccessful() && response.body() != null) {
@@ -175,11 +172,11 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
             }
 
             @Override
-            public void onFailure(@NonNull Call<chartaccount> call, Throwable t) {
+            public void onFailure(@NonNull Call<Catgory> call, Throwable t) {
                 Toast.makeText(context, "Error! " + t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-*/
+
 
 }

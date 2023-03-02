@@ -30,10 +30,10 @@
 
                 <ImageView
                     android:layout_margin="5dp"
-                    android:background="@drawable/bcv"
+                    android:background="@drawable/hhu"
                     android:id="@+id/cart_product_image"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
                     android:layout_weight="1"
                     android:contentDescription="TODO"
                     android:padding="15dp"

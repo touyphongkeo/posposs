@@ -106,6 +106,20 @@ public interface ApiInterface {
             @Field(Constant.TBNAME) String tbname
     );
 
+   //delete category
+    @FormUrlEncoded
+    @POST("delete_category.php")
+    Call<Catgory> deleteCategory(
+            @Field(Constant.CATEGORY_ID) String category_id
+    );
+
+
+    @FormUrlEncoded
+    @POST("select_category.php")
+    Call<List<Catgory>> updateCategorys(
+            @Field(Constant.CATEGORY_ID) String category_id
+    );
+
 
 
     //add sale data to server

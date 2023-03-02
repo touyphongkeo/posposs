@@ -6,6 +6,7 @@ public class ClassLibs {
     public static String Image = "";
     public static String SALE_BILL = "";
     public static String Cut_qty = "";
+    public static String Chart_id = "";
 
 
     public static String finvoiceId = "";
