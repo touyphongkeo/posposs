@@ -59,15 +59,21 @@
 
 
                 <ImageView
-                    android:id="@+id/img_cart"
+                    android:visibility="gone"
+                    android:id="@+id/add_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:foregroundGravity="center"
                     android:padding="15dp"
                     android:src="@drawable/baselinebf" />
 
-
-
+                <ImageView
+                    android:id="@+id/redfart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foregroundGravity="center"
+                    android:padding="15dp"
+                    android:src="@drawable/baseline_replay_5_24" />
             </RelativeLayout>
 
         </LinearLayout>
@@ -109,13 +115,13 @@
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/colorPrimary"
                         android:textSize="16sp"
-                        android:layout_marginLeft="1dp"
+                        android:layout_marginLeft="5dp"
                         android:fontFamily="@font/notosanslaoui_regular"
-                        android:text="ຊື່ປະເພດ"/>
+                        android:text="ຊື່ປະເພດ *"/>
 
                     <EditText
                         android:layout_marginTop="5dp"
-                        android:id="@+id/etxt_email"
+                        android:id="@+id/category_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"

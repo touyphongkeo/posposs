@@ -114,10 +114,11 @@ public interface ApiInterface {
     );
 
 
-    @FormUrlEncoded
-    @POST("select_category.php")
+
+
+    @GET("select_category.php")
     Call<List<Catgory>> updateCategorys(
-            @Field(Constant.CATEGORY_ID) String category_id
+            @Query(Constant.CATEGORY_ID) String category_id
     );
 
 

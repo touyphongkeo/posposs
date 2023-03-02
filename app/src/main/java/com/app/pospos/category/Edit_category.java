@@ -1,9 +1,14 @@
 package com.app.pospos.category;
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,59 +43,72 @@ public class Edit_category extends BaseActivity {
     ProgressDialog loading;
     SharedPreferences sp;
 
+    EditText category_name;
+
+    ImageView img_back,redfart,add_data;
+
     SharedPreferences.Editor editor;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editcategory);
         getSupportActionBar().hide();
-        sp = getSharedPreferences(Constant.SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        editor = sp.edit();
-        String email = sp.getString(Constant.SP_EMAIL, "");
-        String password = sp.getString(Constant.SP_PASSWORD, "");
-
         category_id = getIntent().getExtras().getString(Constant.CATEGORY_ID);
+        category_name = findViewById(R.id.category_name);
+        redfart = findViewById(R.id.redfart);
+        img_back = findViewById(R.id.img_back);
+        add_data = findViewById(R.id.add_data);
+        getCategory(category_id.toString());
+        category_name.setEnabled(false);
 
-        Toast.makeText(this, category_id.toString(), Toast.LENGTH_SHORT).show();
-        getCategory(category_id);
+
+        redfart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redfart.setVisibility(View.GONE);
+                add_data.setVisibility(View.VISIBLE);
+                category_name.setEnabled(true);
+            }
+        });
+
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Edit_category.this,CategoryActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
     }
 
 
 
     public void getCategory(String category_id) {
-        Log.d("category_id",category_id);
-        loading=new ProgressDialog(Edit_category.this);
-        loading.setCancelable(false);
-        loading.setMessage(getString(R.string.please_wait));
-        loading.show();
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        retrofit2.Call<List<Catgory>> call;
+        Call<List<Catgory>> call;
         call = apiInterface.updateCategorys(category_id);
         call.enqueue(new Callback<List<Catgory>>() {
             @Override
-            public void onResponse(@NonNull retrofit2.Call<List<Catgory>> call, @NonNull retrofit2.Response<List<Catgory>> response) {
+            public void onResponse(@NonNull Call<List<Catgory>> call, @NonNull Response<List<Catgory>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    List<Catgory> userData;
-                    userData = response.body();
-                    loading.dismiss();
-                    if (userData.isEmpty()) {
-                        Toasty.warning(Edit_category.this, R.string.no_product_found, Toast.LENGTH_SHORT).show();
-                    } else {
-                        loading.dismiss();
-                        String id = userData.get(0).getID();
-                        String categoryId = userData.get(0).getCategory_id();
-                        String category_name = userData.get(0).getCategory_name();
-
-
-                    }
+                    List<Catgory> productData;
+                    productData = response.body();
+                        String id = productData.get(0).getID();
+                        String categoryId = productData.get(0).getCategory_id();
+                        String categoryName = productData.get(0).getCategory_name();
+                        category_name.setText(categoryName);
                 }
             }
+
             @Override
-            public void onFailure(@NonNull retrofit2.Call<List<Catgory>> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<List<Catgory>> call, @NonNull Throwable t) {
+
+                loading.dismiss();
                 Toast.makeText(Edit_category.this, R.string.something_went_wrong, Toast.LENGTH_SHORT).show();
                 Log.d("Error : ", t.toString());
             }
         });
-    }
 
+    }
 }
