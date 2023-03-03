@@ -31,10 +31,12 @@ public class Constant {
     public static final String EDIT = "edit";
     //===========================================
 
-
+    public static final String KEY_EXISTS= "exists";
 
     public static final String STTUS_TABLE = "status_table";
     public static final String CATEGORY_ID = "category_id";
+
+    public static final String CATEGORY_NAME = "category_name";
     public static String tbsale_save_data="tbsale_save_data";
     public static final String SP_CURRENCY_SYMBOL="currency_symbol";
 

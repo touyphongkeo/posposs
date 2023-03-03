@@ -12,8 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.app.onlinesmartpos.R;
 import com.app.pospos.Constant;
-import com.app.pospos.category.Edit_category;
-import com.app.pospos.image.Get_imageshow;
+import com.app.pospos.category.Editcategory_Activity;
 import com.app.pospos.model.Catgory;
 import com.app.pospos.networking.ApiClient;
 import com.app.pospos.networking.ApiInterface;
@@ -98,7 +97,7 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
             @Override
             public void onClick(View v) {
                 Chart_id = category_id;
-                Intent intent=new Intent(context, Edit_category.class);
+                Intent intent=new Intent(context, Editcategory_Activity.class);
                 intent.putExtra("category_id",category_id);
                 context.startActivity(intent);
 

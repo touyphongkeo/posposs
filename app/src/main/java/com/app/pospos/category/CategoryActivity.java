@@ -30,7 +30,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 public class CategoryActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    ImageView imgNoProduct,img_back;
+    ImageView imgNoProduct,img_back,img_cart;
     EditText etxtSearch;
     FloatingActionButton fabAdd;
     private ShimmerFrameLayout mShimmerViewContainer;
@@ -55,6 +55,7 @@ public class CategoryActivity extends BaseActivity {
         etxtSearch = findViewById(R.id.etxt_customer_search);
         fabAdd = findViewById(R.id.fab_add);
         img_back = findViewById(R.id.img_back);
+        img_cart = findViewById(R.id.img_cart);
 
         // set a GridLayoutManager with default vertical orientation and 3 number of columns
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -71,6 +72,16 @@ public class CategoryActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(CategoryActivity.this, HomeActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+
+        img_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CategoryActivity.this, Addcategory_Activity.class);
                 startActivity(i);
                 finish();
             }

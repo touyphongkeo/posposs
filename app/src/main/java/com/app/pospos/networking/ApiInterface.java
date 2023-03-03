@@ -86,6 +86,22 @@ public interface ApiInterface {
 
     );
 
+
+
+    @FormUrlEncoded
+    @POST("update_category.php")
+    Call<Catgory> update_category(
+            @Query(Constant.CATEGORY_ID) String category_id,
+            @Query(Constant.CATEGORY_NAME) String category_name
+    );
+
+    @FormUrlEncoded
+    @POST("add_category.php")
+    Call<Catgory> addCategory(
+            @Field(Constant.CATEGORY_NAME) String category_name
+    );
+
+
     @FormUrlEncoded
     @POST("update_table1.php")
     Call<Table> update_table1(

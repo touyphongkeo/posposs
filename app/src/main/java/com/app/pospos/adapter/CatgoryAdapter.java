@@ -1,32 +1,25 @@
 package com.app.pospos.adapter;
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.pospos.category.Editcategory_Activity;
 import com.app.pospos.database.DatabaseAccess;
 import com.app.pospos.model.Catgory;
-import com.app.pospos.model.Product;
-import com.app.pospos.networking.ApiClient;
-import com.app.pospos.networking.ApiInterface;
 import com.app.pospos.utils.Utils;
 import com.app.onlinesmartpos.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class CatgoryAdapter extends RecyclerView.Adapter<CatgoryAdapter.MyViewHolder> {
@@ -107,13 +100,12 @@ public class CatgoryAdapter extends RecyclerView.Adapter<CatgoryAdapter.MyViewHo
 
         @Override
         public void onClick(View v) {
-//            Intent i = new Intent(context, EditCustomersActivity.class);
-//            i.putExtra("customer_id", customerData.get(getAdapterPosition()).getCustomerId());
-//            i.putExtra("customer_name", customerData.get(getAdapterPosition()).getCustomerName());
-//            i.putExtra("customer_cell", customerData.get(getAdapterPosition()).getCustomerCell());
-//            i.putExtra("customer_email", customerData.get(getAdapterPosition()).getCustomerEmail());
-//            i.putExtra("customer_address", customerData.get(getAdapterPosition()).getCustomerAddress());
-//            context.startActivity(i);
+            Intent i = new Intent(context, Editcategory_Activity.class);
+            i.putExtra("customer_id", customerData.get(getAdapterPosition()).getID());
+            i.putExtra("customer_name", customerData.get(getAdapterPosition()).getCategory_id());
+            i.putExtra("customer_name", customerData.get(getAdapterPosition()).getCategory_name());
+
+            context.startActivity(i);
         }
     }
 
