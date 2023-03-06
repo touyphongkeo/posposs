@@ -88,12 +88,13 @@ public interface ApiInterface {
 
 
 
+
+
     @FormUrlEncoded
     @POST("update_category.php")
-    Call<Catgory> update_category(
-            @Query(Constant.CATEGORY_ID) String category_id,
-            @Query(Constant.CATEGORY_NAME) String category_name
-    );
+    Call<Catgory> updateCategory(
+            @Field(Constant.CATEGORY_ID) String category_id,
+            @Field(Constant.CATEGORY_NAME) String category_name);
 
     @FormUrlEncoded
     @POST("add_category.php")
@@ -127,6 +128,13 @@ public interface ApiInterface {
     @POST("delete_category.php")
     Call<Catgory> deleteCategory(
             @Field(Constant.CATEGORY_ID) String category_id
+    );
+
+
+    @FormUrlEncoded
+    @POST("delete_product.php")
+    Call<Product> deleteProduct(
+            @Field(Constant.PRODUCT_ID) String product_id
     );
 
 

@@ -1,5 +1,8 @@
 package com.app.pospos.adapter;
+
+import static com.app.pospos.ClassLibs.Chart_id;
 import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Slidetop;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -8,28 +11,34 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.app.onlinesmartpos.R;
 import com.app.pospos.Constant;
 import com.app.pospos.category.EditCategoryActivity;
 import com.app.pospos.model.Catgory;
+import com.app.pospos.model.Product;
 import com.app.pospos.networking.ApiClient;
 import com.app.pospos.networking.ApiInterface;
 import com.app.pospos.utils.Utils;
+import com.bumptech.glide.Glide;
 import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
+
 import java.util.List;
+
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import static com.app.pospos.ClassLibs.Chart_id;
-public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.MyViewHolder> {
-    private List<Catgory> customerData;
+
+public class Product_tAdapter extends RecyclerView.Adapter<Product_tAdapter.MyViewHolder> {
+    private List<Product> customerData;
     private Context context;
     Utils utils;
 
-    public Categorys_tAdapter(Context context, List<Catgory> customerData) {
+    public Product_tAdapter(Context context, List<Product> customerData) {
         this.context = context;
         this.customerData = customerData;
         utils=new Utils();
@@ -38,27 +47,35 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
 
     @NonNull
     @Override
-    public Categorys_tAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.catgorydata_item, parent, false);
+    public Product_tAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.productt_item, parent, false);
         return new MyViewHolder(view);
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull final Categorys_tAdapter.MyViewHolder holder, int position) {
-        final String Id = customerData.get(position).getID();
-        String 	category_id = customerData.get(position).getCategory_id();
-        String category_name = customerData.get(position).getCategory_name();
+    public void onBindViewHolder(@NonNull final Product_tAdapter.MyViewHolder holder, int position) {
+        final String code1 = customerData.get(position).getCode1();
+        String 	product_id = customerData.get(position).getProduct_id();
+        String barcode = customerData.get(position).getBarcode();
+        String category_id = customerData.get(position).getCategory_id();
+        String product_name = customerData.get(position).getProduct_name();
+        String qty = customerData.get(position).getQty();
+        String img_url = customerData.get(position).getImg_url();
 
-        holder.txtCustomerName.setText("ລະຫັດ: "+Id);
+
+
+        holder.txtCustomerName.setText("ລະຫັດສີນຄ້າ: "+product_id);
         holder.txtCell.setText("ລະຫັດໜວດໜູ່: "+category_id);
-        holder.txtEmail.setText("ປະເພດ: "+category_name);
+        holder.txtEmail.setText("ສີນຄ້າ: "+product_name);
+        holder.txt_address.setText("ຈຳນວນ: "+qty);
 
+        String imageUrl= Constant.PRODUCT_IMAGE_URL+img_url;
 //
-        holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+       holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Chart_id = category_id;
+           //     Chart_id = category_id;
                 NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(context);
                 dialogBuilder
                         .withTitle("ຄຳເຕືອນ")
@@ -71,7 +88,7 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
                             @Override
                             public void onClick(View v) {
                                 if (utils.isNetworkAvailable(context)) {
-                                    deletecategory(category_id);
+                                    delete_product(product_id);
                                     customerData.remove(holder.getAdapterPosition());
                                     dialogBuilder.dismiss();
                                 } else {
@@ -99,13 +116,27 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
             public void onClick(View v) {
                 Chart_id = category_id;
                 Intent intent=new Intent(context, EditCategoryActivity.class);
-                intent.putExtra("Id",Id);
+                intent.putExtra("Id",product_id);
                 intent.putExtra("category_id",category_id);
-                intent.putExtra("category_name",category_name);
+                intent.putExtra("product_name",product_name);
                 context.startActivity(intent);
 
             }
         });
+
+
+
+        if (img_url != null) {
+            if (img_url.length() < 3) {
+                holder.cart_product_image.setImageResource(R.drawable.image_placeholder);
+            } else {
+                Glide.with(context)
+                        .load(imageUrl)
+                        .placeholder(R.drawable.loading)
+                        .error(R.drawable.image_placeholder)
+                        .into(holder.cart_product_image);
+            }
+        }
 
     }
 
@@ -116,8 +147,8 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView txtCustomerName, txtCell, txtEmail;
-        ImageView imgDelete, imgCall;
+        TextView txtCustomerName, txtCell, txtEmail,txt_address;
+        ImageView imgDelete, imgCall,cart_product_image;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -127,31 +158,31 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
             txtEmail = itemView.findViewById(R.id.txt_email);
             imgDelete = itemView.findViewById(R.id.img_delete);
             imgCall = itemView.findViewById(R.id.img_call);
+            cart_product_image = itemView.findViewById(R.id.cart_product_image);
+            txt_address = itemView.findViewById(R.id.txt_address);
             itemView.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
-            Intent i = new Intent(context, EditCategoryActivity.class);
-            i.putExtra("Id", customerData.get(getAdapterPosition()).getID());
-            i.putExtra("category_id", customerData.get(getAdapterPosition()).getCategory_id());
-            i.putExtra("category_name", customerData.get(getAdapterPosition()).getCategory_name());
-
-            context.startActivity(i);
+//            Intent i = new Intent(context, EditCategoryActivity.class);
+//            i.putExtra("Id", customerData.get(getAdapterPosition()).getID());
+//            i.putExtra("category_id", customerData.get(getAdapterPosition()).getCategory_id());
+//            i.putExtra("category_name", customerData.get(getAdapterPosition()).getCategory_name());
+//
+//            context.startActivity(i);
         }
     }
 
 
     //delete from server
-    private void deletecategory(String category_id) {
+    private void delete_product(String product_id) {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<Catgory> call = apiInterface.deleteCategory(category_id);
-        call.enqueue(new Callback<Catgory>() {
+        Call<Product> call = apiInterface.deleteProduct(product_id);
+        call.enqueue(new Callback<Product>() {
             @Override
-            public void onResponse(@NonNull Call<Catgory> call, @NonNull Response<Catgory> response) {
-
-
+            public void onResponse(@NonNull Call<Product> call, @NonNull Response<Product> response) {
                 if (response.isSuccessful() && response.body() != null) {
 
                     String value = response.body().getValue();
@@ -173,7 +204,7 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
             }
 
             @Override
-            public void onFailure(@NonNull Call<Catgory> call, Throwable t) {
+            public void onFailure(@NonNull Call<Product> call, Throwable t) {
                 Toast.makeText(context, "Error! " + t.toString(), Toast.LENGTH_SHORT).show();
             }
         });

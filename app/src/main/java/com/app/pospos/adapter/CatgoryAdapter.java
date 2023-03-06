@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.pospos.category.Editcategory_Activity;
+import com.app.pospos.category.EditCategoryActivity;
 import com.app.pospos.database.DatabaseAccess;
 import com.app.pospos.model.Catgory;
 import com.app.pospos.utils.Utils;
@@ -100,7 +100,7 @@ public class CatgoryAdapter extends RecyclerView.Adapter<CatgoryAdapter.MyViewHo
 
         @Override
         public void onClick(View v) {
-            Intent i = new Intent(context, Editcategory_Activity.class);
+            Intent i = new Intent(context, EditCategoryActivity.class);
             i.putExtra("customer_id", customerData.get(getAdapterPosition()).getID());
             i.putExtra("customer_name", customerData.get(getAdapterPosition()).getCategory_id());
             i.putExtra("customer_name", customerData.get(getAdapterPosition()).getCategory_name());

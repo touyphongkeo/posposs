@@ -24,6 +24,7 @@ import com.app.pospos.category.CategoryActivity;
 import com.app.pospos.model.Login;
 import com.app.pospos.networking.ApiClient;
 import com.app.pospos.networking.ApiInterface;
+import com.app.pospos.product.ProductActivity;
 import com.app.pospos.table.Mtable2Activity;
 import com.app.pospos.table.MtableActivity;
 import com.app.onlinesmartpos.R;
@@ -51,7 +52,7 @@ import retrofit2.Callback;
 import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Slidetop;
 
 public class HomeActivity extends BaseActivity {
-    CardView  cardLogout,card_table,card_pos,view1,card_category;
+    CardView  cardLogout,card_table,card_pos,view1,card_category,card_product;
     //for double back press to exit
     private static final int TIME_DELAY = 2000;
     private static long backPressed;
@@ -81,6 +82,7 @@ public class HomeActivity extends BaseActivity {
         view2s = findViewById(R.id.view2s);
         view3 = findViewById(R.id.view3);
         image_view = findViewById(R.id.image_view);
+        card_product = findViewById(R.id.card_product);
 
 
 
@@ -114,6 +116,16 @@ public class HomeActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, Mtable2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        card_product.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, ProductActivity.class);
                 startActivity(intent);
             }
         });

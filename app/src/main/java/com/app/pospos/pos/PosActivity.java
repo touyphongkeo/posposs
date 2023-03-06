@@ -252,7 +252,9 @@ public class PosActivity extends BaseActivity {
 
 
 
-    }//ກັບຄືນ
+    }
+
+    //ກັບຄືນ
 
     //login method
 
