@@ -39,6 +39,7 @@
         <activity android:name="com.app.pospos.pos.Pos2Activity" />
         <activity android:name="com.app.pospos.product.ProductActivity" />
         <activity android:name="com.app.pospos.product.Addproduct_Activity" />
+        <activity android:name="com.app.pospos.office.OfficeActivity" />
         <activity android:name="com.app.pospos.product.ScannerViewActivity" />
         <activity android:name="com.app.pospos.category.CategoryActivity" />
         <activity android:name="com.app.pospos.category.EditCategoryActivity" />

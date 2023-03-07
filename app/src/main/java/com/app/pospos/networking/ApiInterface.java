@@ -1,13 +1,16 @@
 package com.app.pospos.networking;
 import com.app.pospos.Constant;
 import com.app.pospos.model.Catgory;
+import com.app.pospos.model.Cook;
 import com.app.pospos.model.Customer;
 import com.app.pospos.model.Login;
 import com.app.pospos.model.Product;
 import com.app.pospos.model.Sale;
+import com.app.pospos.model.Status;
 import com.app.pospos.model.Table;
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 
@@ -15,7 +18,9 @@ import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
@@ -32,6 +37,15 @@ public interface ApiInterface {
     Call<List<Table>> get_table(
             @Query(Constant.SEARCH_TEXT) String searchText
     );
+
+
+    @POST("get_status.php")
+    Call<List<Status>> getStatus();
+
+
+    @POST("get_cook.php")
+    Call<List<Cook>> getCook();
+
 
 
     @POST("orders_submit.php")
@@ -101,6 +115,44 @@ public interface ApiInterface {
     Call<Catgory> addCategory(
             @Field(Constant.CATEGORY_NAME) String category_name
     );
+
+
+
+    @FormUrlEncoded
+    @POST("add_product.php")
+    Call<Product> addProduct(
+            @Field(Constant.BARCODE) String barcode,
+            @Field(Constant.PRODUCT_NAME) String product_name,
+            @Field(Constant.CATEGORY_ID) String category_id,
+            @Field(Constant.BPRICE) String bprice,
+            @Field(Constant.PRICE) String price,
+            @Field(Constant.QTY) String qty,
+            @Field(Constant.SIZE) String size,
+            @Field(Constant.CUST_QTY) String cut_qty,
+            @Field(Constant.COOK) String cook
+
+    );
+
+
+    //for upload image and info
+    @Multipart
+    @POST("addproduct.php")
+    Call<Product> addProducts(@Part MultipartBody.Part file,
+                             @Part(Constant.KEY_FILE) RequestBody name,
+                             @Part(Constant.BARCODE) RequestBody barcode,
+                             @Part(Constant.PRODUCT_NAME) RequestBody product_name,
+                             @Part(Constant.CATEGORY_ID) RequestBody category_id,
+                             @Part(Constant.BPRICE) RequestBody bprice,
+                             @Part(Constant.PRICE) RequestBody price,
+                             @Part(Constant.QTY) RequestBody qty,
+                             @Part(Constant.SIZE) RequestBody size,
+                             @Part(Constant.CUST_QTY) RequestBody cut_qty,
+                             @Part(Constant.COOK) RequestBody cook
+
+    );
+
+
+
 
 
     @FormUrlEncoded

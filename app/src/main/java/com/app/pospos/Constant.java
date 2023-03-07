@@ -43,8 +43,16 @@ public class Constant {
 
 
     public static final String PRODUCT_ID= "product_id";
+    public static final String BPRICE= "bprice";
+    public static final String PRICE= "price";
     public static final String CUST_QTY= "cut_qty";
+    public static final String BARCODE= "barcode";
+    public static final String PRODUCT_NAME= "product_name";
+
+    public static final String KEY_FILE="file";
+    public static final String COOK= "cook";
     public static final String QTY= "qty";
+    public static final String SIZE= "size";
     //
     public static final String KEY_FAILURE= "failure";
     public static final String KEY_SUCCESS= "success";

@@ -107,6 +107,8 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
+
+
                     <TextView
                         android:id="@+id/category"
                         android:layout_width="match_parent"
@@ -195,6 +197,8 @@
                         android:text="ຊື່ສີນຄ້າ *"/>
 
                     <EditText
+
+                        android:id="@+id/text_product_name"
                         android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -221,6 +225,7 @@
                         android:text="ລາຄາຊື້ *"/>
 
                     <EditText
+                        android:id="@+id/text_bprice"
                         android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -247,6 +252,7 @@
                         android:text="ລາຄາຂາຍ *"/>
 
                     <EditText
+                        android:id="@+id/text_price"
                         android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -273,6 +279,7 @@
                         android:text="ຈໍານວນ *"/>
 
                     <EditText
+                        android:id="@+id/text_qty"
                         android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -299,6 +306,7 @@
                         android:text="ຂະໜາດ *"/>
 
                     <EditText
+                        android:id="@+id/text_size"
                         android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -312,6 +320,7 @@
                         android:textColorHint="@color/colorPrimary"
                         android:textSize="16sp" />
 
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -323,6 +332,7 @@
                         android:text="ສະຖານະ *"/>
 
                     <EditText
+                        android:id="@+id/etxtProductCategory"
                         android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -336,6 +346,35 @@
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/colorPrimary"
                         android:textSize="16sp" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/notosanslaoui_regular"
+                        android:text="ສົ່ງເຂົ້າຄົວ *"/>
+
+                    <EditText
+                        android:id="@+id/etxt_cook"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/round_border"
+                        android:drawableLeft="@drawable/ic_search"
+                        android:hint="ເລືອກ"
+                        android:fontFamily="@font/notosanslaoui_regular"
+                        android:padding="16dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="16sp" />
+
+
 
 
                     <ImageView
