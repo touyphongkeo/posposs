@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -118,6 +119,7 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
 
         TextView txtCustomerName, txtCell, txtEmail;
         ImageView imgDelete, imgCall;
+        ProgressBar progressBar2;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -127,12 +129,14 @@ public class Categorys_tAdapter extends RecyclerView.Adapter<Categorys_tAdapter.
             txtEmail = itemView.findViewById(R.id.txt_email);
             imgDelete = itemView.findViewById(R.id.img_delete);
             imgCall = itemView.findViewById(R.id.img_call);
+            progressBar2 = itemView.findViewById(R.id.progressBar_household2);
             itemView.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
+            progressBar2.setVisibility(View.VISIBLE);
             Intent i = new Intent(context, EditCategoryActivity.class);
             i.putExtra("Id", customerData.get(getAdapterPosition()).getID());
             i.putExtra("category_id", customerData.get(getAdapterPosition()).getCategory_id());

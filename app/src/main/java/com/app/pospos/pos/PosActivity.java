@@ -23,6 +23,7 @@ import static com.app.pospos.ClassLibs.Tbname;
 
 import com.app.pospos.Constant;
 import com.app.pospos.HomeActivity;
+import com.app.pospos.adapter.Catgory1Adapter;
 import com.app.pospos.adapter.CatgoryAdapter;
 import com.app.pospos.adapter.ProductAdapter;
 import com.app.pospos.database.DatabaseAccess;
@@ -191,8 +192,8 @@ public class PosActivity extends BaseActivity {
                     if (Catgorylist.isEmpty()) {
                         imgNoProduct.setImageResource(R.drawable.not_found);
                     } else {
-                        CatgoryAdapter catgoryAdapter = new CatgoryAdapter(PosActivity.this, Catgorylist,recycler_views, imgNoProduct, txtNoProducts, mShimmerViewContainer);
-                        recyclerView.setAdapter(catgoryAdapter);
+                        Catgory1Adapter catgory1Adapter = new Catgory1Adapter(PosActivity.this, Catgorylist,recycler_views, imgNoProduct, txtNoProducts, mShimmerViewContainer);
+                        recyclerView.setAdapter(catgory1Adapter);
                     }
                 }
             }

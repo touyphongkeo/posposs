@@ -27,7 +27,7 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:padding="10dp"
-                app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+                app:srcCompat="@drawable/baseline_home_24"
                 tools:ignore="VectorDrawableCompat" />
 
             <TextView

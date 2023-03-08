@@ -101,6 +101,13 @@ public interface ApiInterface {
     );
 
 
+    @GET("select_product.php")
+    Call<List<Product>> getSelectID(
+            @Query(Constant.PRODUCT_ID) String productId
+
+    );
+
+
 
 
 
@@ -152,6 +159,36 @@ public interface ApiInterface {
     );
 
 
+
+    @Multipart
+    @POST("update_product_without_image.php")
+    Call<Product> updateProductWithoutImage(
+            @Part(Constant.BARCODE) RequestBody barcode,
+            @Part(Constant.PRODUCT_NAME) RequestBody product_name,
+            @Part(Constant.CATEGORY_ID) RequestBody categoryId,
+            @Part(Constant.BPRICE) RequestBody bprice,
+            @Part(Constant.PRICE) RequestBody price,
+            @Part(Constant.QTY) RequestBody qty,
+            @Part(Constant.SIZE) RequestBody size,
+            @Part(Constant.CUST_QTY) RequestBody cut_qty,
+            @Part(Constant.COOK) RequestBody cook,
+            @Part(Constant.PRODUCT_ID) RequestBody productId);
+
+
+    @Multipart
+    @POST("update_product.php")
+    Call<Product> updateProduct(@Part MultipartBody.Part file,
+          @Part(Constant.KEY_FILE) RequestBody name,
+          @Part(Constant.BARCODE) RequestBody barcode,
+          @Part(Constant.PRODUCT_NAME) RequestBody product_name,
+          @Part(Constant.CATEGORY_ID) RequestBody category_id,
+          @Part(Constant.BPRICE) RequestBody bprice,
+          @Part(Constant.PRICE) RequestBody price,
+          @Part(Constant.QTY) RequestBody qty,
+          @Part(Constant.SIZE) RequestBody size,
+          @Part(Constant.CUST_QTY) RequestBody cut_qty,
+          @Part(Constant.COOK) RequestBody cook,
+          @Part(Constant.PRODUCT_ID) RequestBody product_id);
 
 
 

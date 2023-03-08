@@ -39,6 +39,8 @@ public class Product {
     @SerializedName("cut_qty")
     private String cut_qty;
 
+    @SerializedName("category_name")
+    private String category_name;
 
     @SerializedName("value")
     private String value;
@@ -46,52 +48,43 @@ public class Product {
     public String getValue() {
         return value;
     }
-
     public String getCode1() {
         return code1;
     }
-
     public String getProduct_id() {
         return product_id;
     }
-
     public String getBarcode() {
         return barcode;
     }
-
     public String getProduct_name() {
         return product_name;
     }
-
     public String getCategory_id() {
         return category_id;
     }
-
     public String getBprice() {
         return bprice;
     }
-
     public String getPrice() {
         return price;
     }
-
     public String getQty() {
         return qty;
     }
-
     public String getSize() {
         return size;
     }
-
     public String getImg_url() {
         return img_url;
     }
-
     public String getCook() {
         return cook;
     }
-
     public String getCut_qty() {
         return cut_qty;
+    }
+    public String getCategory_name() {
+        return category_name;
     }
 }

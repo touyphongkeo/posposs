@@ -49,7 +49,7 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
     SharedPreferences sp;
     SharedPreferences.Editor editor;
     String username ="";
-    Integer cust =0;
+    Integer cust =1;
     TextView table;
 
     public Product2Adapter(Context context, List<Product> customerData) {

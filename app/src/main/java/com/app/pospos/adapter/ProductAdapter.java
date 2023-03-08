@@ -46,7 +46,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     SharedPreferences sp;
     SharedPreferences.Editor editor;
     String username ="";
-    Integer cust =0;
+    Integer cust =1;
     TextView table;
 
     public ProductAdapter(Context context, List<Product> customerData) {

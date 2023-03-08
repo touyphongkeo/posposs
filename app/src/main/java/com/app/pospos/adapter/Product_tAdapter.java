@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.app.pospos.model.Catgory;
 import com.app.pospos.model.Product;
 import com.app.pospos.networking.ApiClient;
 import com.app.pospos.networking.ApiInterface;
+import com.app.pospos.product.Editproduct_Activity;
 import com.app.pospos.utils.Utils;
 import com.bumptech.glide.Glide;
 import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
@@ -34,13 +36,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Product_tAdapter extends RecyclerView.Adapter<Product_tAdapter.MyViewHolder> {
-    private List<Product> customerData;
+    private List<Product> productData;
     private Context context;
     Utils utils;
 
-    public Product_tAdapter(Context context, List<Product> customerData) {
+    public Product_tAdapter(Context context, List<Product> productData) {
         this.context = context;
-        this.customerData = customerData;
+        this.productData = productData;
         utils=new Utils();
     }
 
@@ -55,13 +57,13 @@ public class Product_tAdapter extends RecyclerView.Adapter<Product_tAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull final Product_tAdapter.MyViewHolder holder, int position) {
-        final String code1 = customerData.get(position).getCode1();
-        String 	product_id = customerData.get(position).getProduct_id();
-        String barcode = customerData.get(position).getBarcode();
-        String category_id = customerData.get(position).getCategory_id();
-        String product_name = customerData.get(position).getProduct_name();
-        String qty = customerData.get(position).getQty();
-        String img_url = customerData.get(position).getImg_url();
+        final String code1 = productData.get(position).getCode1();
+        String 	product_id = productData.get(position).getProduct_id();
+        String barcode = productData.get(position).getBarcode();
+        String category_id = productData.get(position).getCategory_id();
+        String product_name = productData.get(position).getProduct_name();
+        String qty = productData.get(position).getQty();
+        String img_url = productData.get(position).getImg_url();
 
 
 
@@ -89,7 +91,7 @@ public class Product_tAdapter extends RecyclerView.Adapter<Product_tAdapter.MyVi
                             public void onClick(View v) {
                                 if (utils.isNetworkAvailable(context)) {
                                     delete_product(product_id);
-                                    customerData.remove(holder.getAdapterPosition());
+                                    productData.remove(holder.getAdapterPosition());
                                     dialogBuilder.dismiss();
                                 } else {
                                     dialogBuilder.dismiss();
@@ -114,12 +116,9 @@ public class Product_tAdapter extends RecyclerView.Adapter<Product_tAdapter.MyVi
         holder.imgCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Chart_id = category_id;
-                Intent intent=new Intent(context, EditCategoryActivity.class);
-                intent.putExtra("Id",product_id);
-                intent.putExtra("category_id",category_id);
-                intent.putExtra("product_name",product_name);
-                context.startActivity(intent);
+                Intent s = new Intent(context, Editproduct_Activity.class);
+                s.putExtra(Constant.PRODUCT_ID, product_id);
+                context.startActivity(s);
 
             }
         });
@@ -142,14 +141,14 @@ public class Product_tAdapter extends RecyclerView.Adapter<Product_tAdapter.MyVi
 
     @Override
     public int getItemCount() {
-        return customerData.size();
+        return productData.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView txtCustomerName, txtCell, txtEmail,txt_address;
         ImageView imgDelete, imgCall,cart_product_image;
-
+        ProgressBar progressBar2;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -160,18 +159,17 @@ public class Product_tAdapter extends RecyclerView.Adapter<Product_tAdapter.MyVi
             imgCall = itemView.findViewById(R.id.img_call);
             cart_product_image = itemView.findViewById(R.id.cart_product_image);
             txt_address = itemView.findViewById(R.id.txt_address);
+            progressBar2 = itemView.findViewById(R.id.progressBar_household2);
             itemView.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
-//            Intent i = new Intent(context, EditCategoryActivity.class);
-//            i.putExtra("Id", customerData.get(getAdapterPosition()).getID());
-//            i.putExtra("category_id", customerData.get(getAdapterPosition()).getCategory_id());
-//            i.putExtra("category_name", customerData.get(getAdapterPosition()).getCategory_name());
-//
-//            context.startActivity(i);
+            progressBar2.setVisibility(View.VISIBLE);
+            Intent i = new Intent(context, Editproduct_Activity.class);
+            i.putExtra(Constant.PRODUCT_ID, productData.get(getAdapterPosition()).getProduct_id());
+            context.startActivity(i);
         }
     }
 
