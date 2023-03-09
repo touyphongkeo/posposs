@@ -9,8 +9,9 @@ import android.os.Handler;
 
 import com.app.onlinesmartpos.R;
 import com.app.pospos.login.LoginActivity;
+import com.app.pospos.utils.BaseActivity;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
 
 
     public static int splashTimeOut = 1000;

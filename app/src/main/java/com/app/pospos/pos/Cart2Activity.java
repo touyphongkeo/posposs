@@ -20,10 +20,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.app.pospos.HomeActivity;
 import com.app.pospos.adapter.Sale2Adapter;
 import com.app.pospos.model.Sale;
 import com.app.pospos.networking.ApiClient;
 import com.app.pospos.networking.ApiInterface;
+import com.app.pospos.print.PrinterActivity;
 import com.app.pospos.table.Mtable2Activity;
 import com.app.pospos.utils.BaseActivity;
 import com.app.pospos.utils.Utils;
@@ -38,7 +40,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Cart2Activity extends BaseActivity {
-    private TextView namess;
+    private TextView namess,print;
     private ImageView img_back;
     private Context context;
     private EditText etxt_customer_search;
@@ -64,15 +66,27 @@ public class Cart2Activity extends BaseActivity {
         namess = findViewById(R.id.namess);
         etxt_customer_search = findViewById(R.id.etxt_customer_search);
         img_back = findViewById(R.id.img_back);
+        print = findViewById(R.id.print);
         namess.setText("ລາຍການອາຫານ "  +Tbname+" "+SALE_BILL);
 
 
         etxt_customer_search.setText(Tbname);
 
+
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Cart2Activity.this, Mtable2Activity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+
+        print.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Cart2Activity.this, PrinterActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -89,8 +103,10 @@ public class Cart2Activity extends BaseActivity {
         recyclerView = findViewById(R.id.recycler_view);
 
         imgNoProduct = findViewById(R.id.image_no_product);
+        print = findViewById(R.id.print);
 
         getorder(Tbname);
+
         // set a GridLayoutManager with default vertical orientation and 3 number of columns
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager); // set LayoutManager to RecyclerView
@@ -105,13 +121,10 @@ public class Cart2Activity extends BaseActivity {
 
 
 
-        if (utils.isNetworkAvailable(Cart2Activity.this))
-        {
+        if (utils.isNetworkAvailable(Cart2Activity.this)) {
             //Load data from server
             getorder(Tbname);
-        }
-        else
-        {
+        } else {
             recyclerView.setVisibility(View.GONE);
             imgNoProduct.setVisibility(View.VISIBLE);
             imgNoProduct.setImageResource(R.drawable.not_found);
@@ -151,7 +164,6 @@ public class Cart2Activity extends BaseActivity {
 
 
     public void getorder(String searchText) {
-
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<List<Sale>> call;
         call = apiInterface.get_order(searchText);
