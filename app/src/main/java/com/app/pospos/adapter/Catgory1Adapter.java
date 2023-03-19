@@ -158,8 +158,8 @@ public class Catgory1Adapter extends RecyclerView.Adapter<Catgory1Adapter.MyView
 
                         recycler_views.setVisibility(View.VISIBLE);
                         imgNoProduct.setVisibility(View.GONE);
-                        Product2Adapter product2Adapter = new Product2Adapter(context, productsList);
-                        recycler_views.setAdapter(product2Adapter);
+                        ProductAdapter productAdapter = new ProductAdapter(context, productsList);
+                        recycler_views.setAdapter(productAdapter);
 
                     }
 

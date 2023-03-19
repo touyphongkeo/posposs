@@ -1,4 +1,5 @@
 package com.app.pospos.pos;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -57,6 +58,7 @@ public class PosActivity extends BaseActivity {
     private ShimmerFrameLayout mShimmerViewContainer;
     SwipeRefreshLayout swipeToRefreshs;
 
+    ProgressDialog loading;
     public static TextView txtCount;
     DatabaseAccess databaseAccess;
 
@@ -210,6 +212,11 @@ public class PosActivity extends BaseActivity {
 
 
     public void getProduct(String searchText) {
+        loading=new ProgressDialog(PosActivity.this);
+        loading.setCancelable(false);
+        loading.setMessage(getString(R.string.please_wait));
+        loading.show();
+
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<List<Product>> call;
         call = apiInterface.get_products(searchText);
@@ -219,7 +226,9 @@ public class PosActivity extends BaseActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Product> customerList;
                     customerList = response.body();
+                    loading.dismiss();
                     if (customerList.isEmpty()) {
+                        loading.dismiss();
                         recycler_views.setVisibility(View.GONE);
                         imgNoProduct.setVisibility(View.VISIBLE);
                         imgNoProduct.setImageResource(R.drawable.not_found);
@@ -227,6 +236,7 @@ public class PosActivity extends BaseActivity {
                         mShimmerViewContainer.stopShimmer();
                         mShimmerViewContainer.setVisibility(View.GONE);
                     } else {
+                        loading.dismiss();
                         //Stopping Shimmer Effects
                         mShimmerViewContainer.stopShimmer();
                         mShimmerViewContainer.setVisibility(View.GONE);

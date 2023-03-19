@@ -4,10 +4,15 @@ import com.app.pospos.model.Catgory;
 import com.app.pospos.model.Cook;
 import com.app.pospos.model.Customer;
 import com.app.pospos.model.Login;
+import com.app.pospos.model.OrderDetails;
 import com.app.pospos.model.Product;
 import com.app.pospos.model.Sale;
 import com.app.pospos.model.Status;
 import com.app.pospos.model.Table;
+import com.app.pospos.model.office;
+import com.app.pospos.model.rate;
+import com.app.pospos.model.totall;
+
 import java.util.List;
 
 import okhttp3.MultipartBody;
@@ -124,6 +129,24 @@ public interface ApiInterface {
     );
 
 
+    @POST("get_office.php")
+    Call<List<office>> get_office();
+
+    @GET("order_details_by_invoice.php")
+    Call<List<OrderDetails>> OrderDetailsByInvoice(
+            @Query(Constant.TBNAME) String tbname
+    );
+
+
+
+    @GET("get_sumtotall.php")
+    Call<List<totall>> gettotall(
+            @Query(Constant.TBNAME) String tbname
+    );
+
+
+    @POST("get_rate.php")
+    Call<List<rate>> get_rate();
 
     @FormUrlEncoded
     @POST("add_product.php")

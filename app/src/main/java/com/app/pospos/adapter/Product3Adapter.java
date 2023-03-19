@@ -89,6 +89,7 @@ public class Product3Adapter extends RecyclerView.Adapter<Product3Adapter.MyView
         String cook = customerData.get(position).getCook();
         String cut_qty = customerData.get(position).getCut_qty();
 
+        holder.txt_stock.setText(product_id);
 
         String imageUrl= Constant.PRODUCT_IMAGE_URL+img_url;
         try {
@@ -180,6 +181,7 @@ public class Product3Adapter extends RecyclerView.Adapter<Product3Adapter.MyView
                 String sale_date = sdf.format(new Date());
                 String sale_status = "1";
                 String edit_sale = "1";
+                String pro = holder.txt_stock.getText().toString();
 
                 if (cust.equals(0)){
                     Toasty.error(context, "ກະລຸນາກຳນົດຈຳນວນກອນ", Toast.LENGTH_SHORT).show();
@@ -213,7 +215,7 @@ public class Product3Adapter extends RecyclerView.Adapter<Product3Adapter.MyView
         return customerData.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView txt_product_name,txt_price,txt_number;
+        TextView txt_product_name,txt_price,txt_number,txt_stock;
         ImageView images;
         CardView card_product;
         Button btnAddToCart,txt_plus,txt_minus;
@@ -228,6 +230,7 @@ public class Product3Adapter extends RecyclerView.Adapter<Product3Adapter.MyView
             txt_plus = itemView.findViewById(R.id.txt_plus);
             txt_minus = itemView.findViewById(R.id.txt_minus);
             card_product = itemView.findViewById(R.id.card_product);
+            txt_stock = itemView.findViewById(R.id.txt_stock);
             itemView.setOnClickListener(this);
         }
 

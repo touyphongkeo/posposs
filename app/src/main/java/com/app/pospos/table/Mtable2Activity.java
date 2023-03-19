@@ -148,6 +148,10 @@ public class Mtable2Activity extends BaseActivity {
 
 
     public void getTable(String searchText) {
+        loading=new ProgressDialog(Mtable2Activity.this);
+        loading.setCancelable(false);
+        loading.setMessage(getString(R.string.please_wait));
+        loading.show();
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<List<Table>> call;
         call = apiInterface.get_table2(searchText);
@@ -157,7 +161,9 @@ public class Mtable2Activity extends BaseActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Table> customerList;
                     customerList = response.body();
+                    loading.dismiss();
                     if (customerList.isEmpty()) {
+                        loading.dismiss();
                         recyclerView.setVisibility(View.GONE);
                         imgNoProduct.setVisibility(View.VISIBLE);
                         imgNoProduct.setImageResource(R.drawable.not_found);
@@ -165,7 +171,7 @@ public class Mtable2Activity extends BaseActivity {
                         mShimmerViewContainer.stopShimmer();
                         mShimmerViewContainer.setVisibility(View.GONE);
                     } else {
-
+                        loading.dismiss();
                         //Stopping Shimmer Effects
                         mShimmerViewContainer.stopShimmer();
                         mShimmerViewContainer.setVisibility(View.GONE);

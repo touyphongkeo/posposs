@@ -3,6 +3,7 @@ package com.app.pospos.pos;
 import static com.app.pospos.ClassLibs.Tbname;
 import static com.app.pospos.ClassLibs.SALE_BILL;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -60,6 +61,7 @@ public class Pos2Activity extends BaseActivity {
     DatabaseAccess databaseAccess;
 
     EditText etxtSearch;
+    ProgressDialog loading;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -209,6 +211,11 @@ public class Pos2Activity extends BaseActivity {
 
 
     public void getProduct(String searchText) {
+        loading=new ProgressDialog(Pos2Activity.this);
+        loading.setCancelable(false);
+        loading.setMessage(getString(R.string.please_wait));
+        loading.show();
+
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<List<Product>> call;
         call = apiInterface.get_products(searchText);
@@ -218,7 +225,9 @@ public class Pos2Activity extends BaseActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Product> customerList;
                     customerList = response.body();
+                    loading.dismiss();
                     if (customerList.isEmpty()) {
+                        loading.dismiss();
                         recycler_views.setVisibility(View.GONE);
                         imgNoProduct.setVisibility(View.VISIBLE);
                         imgNoProduct.setImageResource(R.drawable.not_found);
@@ -226,6 +235,7 @@ public class Pos2Activity extends BaseActivity {
                         mShimmerViewContainer.stopShimmer();
                         mShimmerViewContainer.setVisibility(View.GONE);
                     } else {
+                        loading.dismiss();
                         //Stopping Shimmer Effects
                         mShimmerViewContainer.stopShimmer();
                         mShimmerViewContainer.setVisibility(View.GONE);
