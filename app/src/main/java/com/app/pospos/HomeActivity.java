@@ -20,10 +20,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.app.pospos.about.AboutActivity;
+import com.app.pospos.adapter.RateAdapter;
 import com.app.pospos.category.CategoryActivity;
 import com.app.pospos.model.Login;
+import com.app.pospos.model.rate;
 import com.app.pospos.networking.ApiClient;
 import com.app.pospos.networking.ApiInterface;
+import com.app.pospos.print.PrinterActivity;
 import com.app.pospos.product.ProductActivity;
 import com.app.pospos.table.Mtable2Activity;
 import com.app.pospos.table.MtableActivity;
@@ -47,8 +50,11 @@ import java.util.List;
 import java.util.Locale;
 
 import es.dmoral.toasty.Toasty;
+import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
+import static com.app.pospos.ClassLibs.Tbname;
 import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Slidetop;
 
 public class HomeActivity extends BaseActivity {
@@ -62,7 +68,8 @@ public class HomeActivity extends BaseActivity {
     SharedPreferences.Editor editor;
     String userType;
     TextView txtShopName,txtSubText,views,view2s,view3;
-
+    private RateAdapter rateAdapter;
+    List<rate> rateData;
     ProgressDialog loading;
     ImageView image_view;
     @Override
@@ -252,6 +259,11 @@ public class HomeActivity extends BaseActivity {
             }
         });
     }
+
+
+
+
+
 
 
     @Override

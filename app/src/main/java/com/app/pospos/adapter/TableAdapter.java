@@ -107,7 +107,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.MyViewHolder
                     NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(context);
                     dialogBuilder
                             .withTitle("ຄຳເຕືອນ")
-                            .withMessage("ທ່ານຕ້ອງປິດໂຕະນີ້ແທ້ ຫຼື ບໍ ?")
+                            .withMessage("ຂໍອະໄພລໍຖ້າເກັບເງີນສຳເລັດກອນ......")
                             .withEffect(Slidetop)
                             .withDialogColor("#2979ff") //use color code for dialog
                             .withButton1Text("ຕົກລົງ")
@@ -116,7 +116,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.MyViewHolder
                                 @Override
                                 public void onClick(View v) {
                                     if (utils.isNetworkAvailable(context)) {
-                                        update_table1(Tbname);
+                                       // update_table1(Tbname);
                                         customerData.remove(holder.getAdapterPosition());
                                         dialogBuilder.dismiss();
                                     }

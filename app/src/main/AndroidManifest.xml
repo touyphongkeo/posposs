@@ -36,6 +36,8 @@
         <activity android:name="com.app.pospos.pos.PosActivity" />
         <activity android:name="com.app.pospos.pos.ProductCart"/>
         <activity android:name="com.app.pospos.pos.Product2Cart"/>
+        <activity android:name="com.app.pospos.pos.ScannerposActivity"/>
+        <activity android:name="com.app.pospos.pos.SccannerposActivity"/>
         <activity android:name="com.app.pospos.pos.Pos2Activity" />
         <activity android:name="com.app.pospos.product.ProductActivity" />
         <activity android:name="com.app.pospos.product.Addproduct_Activity" />

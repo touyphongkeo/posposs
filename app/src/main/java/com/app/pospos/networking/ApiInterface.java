@@ -145,7 +145,7 @@ public interface ApiInterface {
     );
 
 
-    @POST("get_rate.php")
+    @GET("get_rate.php")
     Call<List<rate>> get_rate();
 
     @FormUrlEncoded
