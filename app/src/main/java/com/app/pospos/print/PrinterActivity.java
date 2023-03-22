@@ -156,7 +156,7 @@ public class PrinterActivity extends AppCompatActivity {
          getProductsData(Tbname.toString());
          get_totall(Tbname.toString());
          get_office();
-         get_rate();
+       //  get_rate();
 
 
 
@@ -227,8 +227,8 @@ public class PrinterActivity extends AppCompatActivity {
                    loading.dismiss();
                     get_office();
                     get_totall(Tbname);
-                    get_rate();
-                   orderDetailsAdapter = new OrderDetailsAdapter2(PrinterActivity.this, orderDetails,telphon,usernaes,idsssss,text_v2,text_v7,text_v9);
+                //    get_rate();
+                   orderDetailsAdapter = new OrderDetailsAdapter2(PrinterActivity.this, orderDetails,telphon,usernaes,idsssss,text_v2,text_v7,text_v9,text_vkk,text_v89);
                    cart_recyclerview.setAdapter(orderDetailsAdapter);
                    //  getProductsDatas(finvoiceId);
                    Toasty.success(PrinterActivity.this, "Successfuly", Toast.LENGTH_SHORT).show();
@@ -342,6 +342,7 @@ public class PrinterActivity extends AppCompatActivity {
 
 
 
+/*
     public void get_rate() {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<List<rate>> call;
@@ -398,6 +399,7 @@ public class PrinterActivity extends AppCompatActivity {
             }
         });
     }
+*/
 
 
     @Override

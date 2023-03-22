@@ -1,5 +1,5 @@
 package com.app.pospos.adapter;
-
+import static com.app.pospos.ClassLibs.Kip_bath;
 
 import android.content.Context;
 import android.content.Intent;
@@ -93,6 +93,7 @@ public class Table2Adapter extends RecyclerView.Adapter<Table2Adapter.MyViewHold
                 SALE_BILL = sale_bill;
 
                 if (Status.equals("2")){
+                    Toast.makeText(context, Kip_bath, Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(context, Cart2Activity.class);
                     context.startActivity(i);
                 }else {

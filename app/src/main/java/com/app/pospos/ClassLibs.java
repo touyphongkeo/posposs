@@ -2,6 +2,7 @@ package com.app.pospos;
 public class ClassLibs {
     public static String Usr_id1 = "";
     public static String Status = "";
+    public static String Kip_bath = "";
     public static String Tbname = "";
     public static String Image = "";
     public static String SALE_BILL = "";

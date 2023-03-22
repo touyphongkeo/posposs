@@ -48,7 +48,7 @@ import retrofit2.Response;
 
 public class Pos2Activity extends BaseActivity {
     private TextView namess,table,txtNoProducts;
-    private ImageView img_back,img_cart;
+    private ImageView img_back,img_cart,imgScanner;
     private Context context;
 
     SharedPreferences sp;
@@ -60,7 +60,8 @@ public class Pos2Activity extends BaseActivity {
     public static TextView txtCount;
     DatabaseAccess databaseAccess;
 
-    EditText etxtSearch;
+
+    public static EditText etxtSearch;
     ProgressDialog loading;
 
     @Override
@@ -89,6 +90,7 @@ public class Pos2Activity extends BaseActivity {
         imgNoProduct = findViewById(R.id.image_no_product);
         txtNoProducts = findViewById(R.id.txt_no_products);
         etxtSearch = findViewById(R.id.etxtSearch);
+        imgScanner = findViewById(R.id.img_scanner);
         getCatgory();
         databaseAccess = DatabaseAccess.getInstance(Pos2Activity.this);
 
@@ -102,6 +104,11 @@ public class Pos2Activity extends BaseActivity {
             }
         });
 
+
+        imgScanner.setOnClickListener(v -> {
+            Intent intent = new Intent(Pos2Activity.this, SccannerposActivity.class);
+            startActivity(intent);
+        });
 
         img_cart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,11 +218,6 @@ public class Pos2Activity extends BaseActivity {
 
 
     public void getProduct(String searchText) {
-        loading=new ProgressDialog(Pos2Activity.this);
-        loading.setCancelable(false);
-        loading.setMessage(getString(R.string.please_wait));
-        loading.show();
-
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<List<Product>> call;
         call = apiInterface.get_products(searchText);
@@ -225,7 +227,7 @@ public class Pos2Activity extends BaseActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Product> customerList;
                     customerList = response.body();
-                    loading.dismiss();
+
                     if (customerList.isEmpty()) {
                         loading.dismiss();
                         recycler_views.setVisibility(View.GONE);
@@ -235,7 +237,7 @@ public class Pos2Activity extends BaseActivity {
                         mShimmerViewContainer.stopShimmer();
                         mShimmerViewContainer.setVisibility(View.GONE);
                     } else {
-                        loading.dismiss();
+
                         //Stopping Shimmer Effects
                         mShimmerViewContainer.stopShimmer();
                         mShimmerViewContainer.setVisibility(View.GONE);
