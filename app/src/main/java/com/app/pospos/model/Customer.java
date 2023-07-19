@@ -10,14 +10,18 @@ public class Customer {
 
     @SerializedName("customer_name")
     private String customerName;
-    @SerializedName("customer_email")
-    private String customerEmail;
 
-    @SerializedName("customer_cell")
-    private String customerCell;
+    @SerializedName("customer_tel")
+    private String customer_tel;
 
-    @SerializedName("customer_address")
-    private String customerAddress;
+    @SerializedName("customer_time")
+    private String customer_time;
+
+    @SerializedName("customer_date")
+    private String customer_date;
+
+    @SerializedName("number_card")
+    private String number_card;
 
     @SerializedName("value")
     private String value;
@@ -32,16 +36,20 @@ public class Customer {
         return customerName;
     }
 
-    public String getCustomerEmail() {
-        return customerEmail;
+    public String getcustomer_tel() {
+        return customer_tel;
     }
 
-    public String getCustomerCell() {
-        return customerCell;
+    public String getcustomer_time() {
+        return customer_time;
     }
 
-    public String getCustomerAddress() {
-        return customerAddress;
+    public String getcustomer_date() {
+        return customer_date;
+    }
+
+    public String getnumber_card() {
+        return number_card;
     }
 
 

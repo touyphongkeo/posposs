@@ -11,9 +11,9 @@ import com.app.onlinesmartpos.R;
 import com.app.pospos.login.LoginActivity;
 import com.app.pospos.utils.BaseActivity;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class SplashActivity extends BaseActivity {
-
-
     public static int splashTimeOut = 1000;
 
     @Override
@@ -30,6 +30,20 @@ public class SplashActivity extends BaseActivity {
             startActivity(intent);
             finish();
         }, splashTimeOut);
+    }
+
+
+    public void successMessage() {
+        new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE).setTitleText("Done!!").setContentText("exercise 06!").show();
+
+    }
+
+    public void changeOnConfirm2() {
+        new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE).setTitleText("ຜິດພາດ").setContentText("ກະລຸນາເຂົ້າລະບົບອີກຄັ້ງ!").setConfirmText("Yes").setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {@Override
+        public void onClick(SweetAlertDialog sDialog) {
+            finishAffinity();
+        }
+        }).show();
     }
 }
 

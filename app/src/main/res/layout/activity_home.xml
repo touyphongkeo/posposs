@@ -5,28 +5,28 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                tools:ignore="UselessLeaf">
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
-                        android:scaleType="centerCrop"
-                         />
+                        android:scaleType="centerCrop" />
                     <TextView
                         android:visibility="gone"
                         android:layout_marginTop="20dp"
@@ -43,15 +43,12 @@
                         android:textColor="@android:color/white"
                         android:textSize="25dp"
                         android:textStyle="bold"/>
-
                 </androidx.cardview.widget.CardView>
-
-
-
             </LinearLayout>
 
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -144,16 +141,11 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="100dp"
-                android:layout_marginBottom="50dp"
+                android:layout_height="wrap_content"
                 android:foregroundGravity="center"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="0dp">
 
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -161,7 +153,6 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:orientation="vertical">
-
                         <RelativeLayout
                             android:visibility="gone"
                             android:layout_marginTop="15dp"
@@ -189,7 +180,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="ຊື່ຜູ້ໃຊ້ລະບົບ: apis"
-
                                 />
 
                             <TextView
@@ -226,548 +216,726 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-                        <LinearLayout
+                        <com.synnapps.carouselview.CarouselView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:orientation="horizontal">
+                            android:layout_height="198dp"
+                            app:pageColor="#00000000"
+                            app:fillColor="#FFFFFFFF"
+                            app:slideInterval="3000"
+                            app:radius="6dp"
+                            app:strokeColor="#FF777777"
+                            app:strokeWidth="1dp"
+                            android:id="@+id/carousel"/>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginRight="5dp"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
 
-                                <androidx.cardview.widget.CardView
-                                    android:id="@+id/card_table"
+
+
+                        <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_row="0"
+                                android:layout_column="0"
+                                android:layout_margin="5dp"
+                                app:cardCornerRadius="28dp"
+                                app:cardElevation="6dp">
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <LinearLayout
+                                    android:id="@+id/type"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:foreground="?android:attr/selectableItemBackground">
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/roundred"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="6dp">
 
-                                    <RelativeLayout
+
+                                    <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:background="#f7f7f7">
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="10dp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
 
-
-
-                                        <FrameLayout
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:layout_alignParentBottom="true"
-                                            android:alpha=".50"
-                                            android:background="@drawable/ic_menuback" />
-
-                                        <FrameLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="180dp"
-                                            android:background="@drawable/item_gradient2" />
-
-                                        <RelativeLayout
-                                            android:layout_width="match_parent"
+                                        <LinearLayout
+                                            android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:layout_marginRight="3dp"
-                                            android:gravity="center">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="5dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
 
-                                            <LinearLayout
+                                            <androidx.cardview.widget.CardView
+                                                android:id="@+id/card_table"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
-                                                android:gravity="center"
-                                                android:orientation="vertical">
+                                                android:foreground="?android:attr/selectableItemBackground">
 
-                                                <TextView
+                                                <RelativeLayout
                                                     android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/notosanslaoui_regular"
-                                                    android:gravity="center"
-                                                    android:padding="5dp"
-                                                    android:text="ຂາຍສີນຄ້າ"
-                                                    android:textAllCaps="true"
-                                                    android:textColor="#FFF"
-                                                    android:textSize="18sp"
-                                                    android:textStyle="bold" />
-
-                                                <ImageView
-                                                    android:layout_width="96dp"
-                                                    android:layout_height="96dp"
-                                                    android:layout_marginStart="2dp"
-                                                    android:layout_marginTop="2dp"
-                                                    android:layout_marginEnd="2dp"
-                                                    android:layout_marginBottom="2dp"
-                                                    android:background="@drawable/circle_shape"
-                                                    android:padding="20dp"
-                                                    android:src="@drawable/tables" />
-                                            </LinearLayout>
-
-
-                                        </RelativeLayout>
-
-
-                                    </RelativeLayout>
-                                </androidx.cardview.widget.CardView>
-
-                            </LinearLayout>
+                                                    android:layout_height="match_parent"
+                                                    android:background="#f7f7f7">
 
 
 
+                                                    <FrameLayout
+                                                        android:layout_width="50dp"
+                                                        android:layout_height="50dp"
+                                                        android:layout_alignParentBottom="true"
+                                                        android:alpha=".50"
+                                                        android:background="@drawable/ic_menuback" />
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                                    <FrameLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="178dp"
 
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginRight="10dp"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                                                        android:background="@drawable/item_gradient2" />
 
-                                <androidx.cardview.widget.CardView
-                                    android:id="@+id/card_pos"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:foreground="?android:attr/selectableItemBackground">
+                                                    <RelativeLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginRight="3dp"
+                                                        android:gravity="center">
 
-                                    <RelativeLayout
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:gravity="center"
+                                                            android:orientation="vertical">
+
+                                                            <TextView
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:fontFamily="@font/notosanslaoui_regular"
+                                                                android:gravity="center"
+                                                                android:padding="5dp"
+                                                                android:text="ຂາຍສີນຄ້າ"
+                                                                android:textAllCaps="true"
+                                                                android:textColor="#FFF"
+                                                                android:textSize="18sp"
+                                                                android:textStyle="bold" />
+
+                                                            <ImageView
+                                                                android:layout_width="96dp"
+                                                                android:layout_height="96dp"
+                                                                android:layout_marginStart="2dp"
+                                                                android:layout_marginTop="2dp"
+                                                                android:layout_marginEnd="2dp"
+                                                                android:layout_marginBottom="2dp"
+                                                                android:background="@drawable/circle_shape"
+                                                                android:padding="20dp"
+                                                                android:src="@drawable/tables" />
+                                                        </LinearLayout>
+
+
+                                                    </RelativeLayout>
+
+
+                                                </RelativeLayout>
+                                            </androidx.cardview.widget.CardView>
+
+                                        </LinearLayout>
+
+
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                            <androidx.cardview.widget.CardView
+                                                android:id="@+id/card_pos"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:foreground="?android:attr/selectableItemBackground">
+
+                                                <RelativeLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:background="#f7f7f7">
+
+                                                    <FrameLayout
+                                                        android:layout_width="50dp"
+                                                        android:layout_height="50dp"
+                                                        android:layout_alignParentBottom="true"
+                                                        android:alpha=".50"
+                                                        android:background="@drawable/ic_menuback" />
+
+                                                    <FrameLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="178dp"
+                                                        android:background="@drawable/item_gradient2" />
+
+                                                    <RelativeLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginRight="3dp"
+                                                        android:gravity="center">
+
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:gravity="center"
+                                                            android:orientation="vertical">
+
+                                                            <TextView
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:fontFamily="@font/notosanslaoui_regular"
+                                                                android:gravity="center"
+                                                                android:padding="5dp"
+                                                                android:text="ປະຫວັດການຂາຍ"
+                                                                android:textAllCaps="true"
+                                                                android:textColor="#FFF"
+                                                                android:textSize="18sp"
+                                                                android:textStyle="bold" />
+
+                                                            <ImageView
+                                                                android:layout_width="96dp"
+                                                                android:layout_height="96dp"
+                                                                android:layout_marginStart="2dp"
+                                                                android:layout_marginTop="2dp"
+                                                                android:layout_marginEnd="2dp"
+                                                                android:layout_marginBottom="2dp"
+                                                                android:background="@drawable/circle_shape"
+                                                                android:padding="20dp"
+                                                                android:src="@drawable/vbdd" />
+                                                        </LinearLayout>
+
+
+                                                    </RelativeLayout>
+
+
+                                                </RelativeLayout>
+                                            </androidx.cardview.widget.CardView>
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+
+                                    <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:background="#f7f7f7">
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="20dp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
 
-                                        <FrameLayout
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:layout_alignParentBottom="true"
-                                            android:alpha=".50"
-                                            android:background="@drawable/ic_menuback" />
-
-                                        <FrameLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="180dp"
-                                            android:background="@drawable/item_gradient2" />
-
-                                        <RelativeLayout
-                                            android:layout_width="match_parent"
+                                        <LinearLayout
+                                            android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:layout_marginRight="3dp"
-                                            android:gravity="center">
 
-                                            <LinearLayout
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="5dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                            <androidx.cardview.widget.CardView
+                                                android:id="@+id/card_category"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
-                                                android:gravity="center"
-                                                android:orientation="vertical">
+                                                android:foreground="?android:attr/selectableItemBackground">
 
-                                                <TextView
+                                                <RelativeLayout
                                                     android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/notosanslaoui_regular"
-                                                    android:gravity="center"
-                                                    android:padding="5dp"
-                                                    android:text="ປະຫວັດການຂາຍ"
-                                                    android:textAllCaps="true"
-                                                    android:textColor="#FFF"
-                                                    android:textSize="18sp"
-                                                    android:textStyle="bold" />
+                                                    android:layout_height="match_parent"
+                                                    android:background="#f7f7f7">
 
-                                                <ImageView
-                                                    android:layout_width="96dp"
-                                                    android:layout_height="96dp"
-                                                    android:layout_marginStart="2dp"
-                                                    android:layout_marginTop="2dp"
-                                                    android:layout_marginEnd="2dp"
-                                                    android:layout_marginBottom="2dp"
-                                                    android:background="@drawable/circle_shape"
-                                                    android:padding="20dp"
-                                                    android:src="@drawable/vbdd" />
-                                            </LinearLayout>
+                                                    <FrameLayout
+                                                        android:layout_width="50dp"
+                                                        android:layout_height="50dp"
+                                                        android:layout_alignParentBottom="true"
+                                                        android:alpha=".50"
+                                                        android:background="@drawable/ic_menuback" />
+
+                                                    <FrameLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="178dp"
+                                                        android:background="@drawable/item_gradient2" />
+
+                                                    <RelativeLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginRight="3dp"
+                                                        android:gravity="center">
+
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:gravity="center"
+                                                            android:orientation="vertical">
+
+                                                            <TextView
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:fontFamily="@font/notosanslaoui_regular"
+                                                                android:gravity="center"
+                                                                android:padding="5dp"
+                                                                android:text="ໜວດໝູສີນຄ້າ"
+                                                                android:textAllCaps="true"
+                                                                android:textColor="#FFF"
+                                                                android:textSize="18sp"
+                                                                android:textStyle="bold" />
+
+                                                            <ImageView
+                                                                android:layout_width="96dp"
+                                                                android:layout_height="96dp"
+                                                                android:layout_marginStart="2dp"
+                                                                android:layout_marginTop="2dp"
+                                                                android:layout_marginEnd="2dp"
+                                                                android:layout_marginBottom="2dp"
+                                                                android:background="@drawable/circle_shape"
+                                                                android:padding="20dp"
+                                                                android:src="@drawable/bvn"
+                                                                />
+                                                        </LinearLayout>
 
 
-                                        </RelativeLayout>
+                                                    </RelativeLayout>
 
 
-                                    </RelativeLayout>
-                                </androidx.cardview.widget.CardView>
-                            </LinearLayout>
+                                                </RelativeLayout>
+                                            </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                            <androidx.cardview.widget.CardView
+                                                android:id="@+id/card_product"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:foreground="?android:attr/selectableItemBackground">
+
+                                                <RelativeLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:background="#f7f7f7">
+
+                                                    <FrameLayout
+                                                        android:layout_width="50dp"
+                                                        android:layout_height="50dp"
+                                                        android:layout_alignParentBottom="true"
+                                                        android:alpha=".50"
+                                                        android:background="@drawable/ic_menuback" />
+
+                                                    <FrameLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="178dp"
+                                                        android:background="@drawable/item_gradient2" />
+
+                                                    <RelativeLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginRight="3dp"
+                                                        android:gravity="center">
+
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:gravity="center"
+                                                            android:orientation="vertical">
+
+                                                            <TextView
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:fontFamily="@font/notosanslaoui_regular"
+                                                                android:gravity="center"
+                                                                android:padding="5dp"
+                                                                android:text="ສີນຄ້າຫຼັກ"
+                                                                android:textAllCaps="true"
+                                                                android:textColor="#FFF"
+                                                                android:textSize="18sp"
+                                                                android:textStyle="bold" />
+
+                                                            <ImageView
+                                                                android:layout_width="96dp"
+                                                                android:layout_height="96dp"
+                                                                android:layout_marginStart="2dp"
+                                                                android:layout_marginTop="2dp"
+                                                                android:layout_marginEnd="2dp"
+                                                                android:layout_marginBottom="2dp"
+                                                                android:background="@drawable/circle_shape"
+                                                                android:padding="20dp"
+                                                                android:src="@drawable/tyg" />
+                                                        </LinearLayout>
+
+                                                    </RelativeLayout>
+
+
+                                                </RelativeLayout>
+                                            </androidx.cardview.widget.CardView>
+                                        </LinearLayout>
+                                    </LinearLayout>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="20dp"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginRight="5dp"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <androidx.cardview.widget.CardView
-                                    android:id="@+id/card_category"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:foreground="?android:attr/selectableItemBackground">
-
-                                    <RelativeLayout
+                                    <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:background="#f7f7f7">
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="20dp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
 
-                                        <FrameLayout
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:layout_alignParentBottom="true"
-                                            android:alpha=".50"
-                                            android:background="@drawable/ic_menuback" />
-
-                                        <FrameLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="180dp"
-                                            android:background="@drawable/item_gradient2" />
-
-                                        <RelativeLayout
-                                            android:layout_width="match_parent"
+                                        <LinearLayout
+                                            android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:layout_marginRight="3dp"
-                                            android:gravity="center">
 
-                                            <LinearLayout
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="5dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                            <androidx.cardview.widget.CardView
+                                                android:id="@+id/list_table"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
-                                                android:gravity="center"
-                                                android:orientation="vertical">
+                                                android:foreground="?android:attr/selectableItemBackground">
 
-                                                <TextView
+                                                <RelativeLayout
                                                     android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/notosanslaoui_regular"
-                                                    android:gravity="center"
-                                                    android:padding="5dp"
+                                                    android:layout_height="match_parent"
+                                                    android:background="#f7f7f7">
 
-                                                    android:text="ໜວດໝູສີນຄ້າ"
-                                                    android:textAllCaps="true"
-                                                    android:textColor="#FFF"
-                                                    android:textSize="18sp"
-                                                    android:textStyle="bold" />
+                                                    <FrameLayout
+                                                        android:layout_width="50dp"
+                                                        android:layout_height="50dp"
+                                                        android:layout_alignParentBottom="true"
+                                                        android:alpha=".50"
+                                                        android:background="@drawable/ic_menuback" />
 
-                                                <ImageView
-                                                    android:layout_width="96dp"
-                                                    android:layout_height="96dp"
-                                                    android:layout_marginStart="2dp"
-                                                    android:layout_marginTop="2dp"
-                                                    android:layout_marginEnd="2dp"
-                                                    android:layout_marginBottom="2dp"
-                                                    android:background="@drawable/circle_shape"
-                                                    android:padding="20dp"
-                                                    android:src="@drawable/bvn"
-                                                   />
-                                            </LinearLayout>
+                                                    <FrameLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="178dp"
+                                                        android:background="@drawable/item_gradient2" />
+
+                                                    <RelativeLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginRight="3dp"
+                                                        android:gravity="center">
+
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:gravity="center"
+                                                            android:orientation="vertical">
+
+                                                            <TextView
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:fontFamily="@font/notosanslaoui_regular"
+                                                                android:gravity="center"
+                                                                android:padding="5dp"
+
+                                                                android:text="ລາຍການໂຕະ"
+                                                                android:textAllCaps="true"
+                                                                android:textColor="#FFF"
+                                                                android:textSize="18sp"
+                                                                android:textStyle="bold" />
+
+                                                            <ImageView
+                                                                android:layout_width="96dp"
+                                                                android:layout_height="96dp"
+                                                                android:layout_marginStart="2dp"
+                                                                android:layout_marginTop="2dp"
+                                                                android:layout_marginEnd="2dp"
+                                                                android:layout_marginBottom="2dp"
+                                                                android:background="@drawable/circle_shape"
+                                                                android:padding="20dp"
+                                                                android:src="@drawable/cds"
+                                                                />
+                                                        </LinearLayout>
 
 
-                                        </RelativeLayout>
+                                                    </RelativeLayout>
 
 
-                                    </RelativeLayout>
-                                </androidx.cardview.widget.CardView>
+                                                </RelativeLayout>
+                                            </androidx.cardview.widget.CardView>
 
-                            </LinearLayout>
+                                        </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginRight="10dp"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
 
-                                <androidx.cardview.widget.CardView
-                                    android:id="@+id/card_product"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:foreground="?android:attr/selectableItemBackground">
+                                            <androidx.cardview.widget.CardView
+                                                android:id="@+id/view2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:foreground="?android:attr/selectableItemBackground">
 
-                                    <RelativeLayout
+                                                <RelativeLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:background="#f7f7f7">
+
+                                                    <FrameLayout
+                                                        android:layout_width="50dp"
+                                                        android:layout_height="50dp"
+                                                        android:layout_alignParentBottom="true"
+                                                        android:alpha=".50"
+                                                        android:background="@drawable/ic_menuback" />
+
+                                                    <FrameLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="178dp"
+                                                        android:background="@drawable/item_gradient2" />
+
+                                                    <RelativeLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginRight="3dp"
+                                                        android:gravity="center">
+
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:gravity="center"
+                                                            android:orientation="vertical">
+
+                                                            <TextView
+
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:fontFamily="@font/notosanslaoui_regular"
+                                                                android:gravity="center"
+                                                                android:padding="5dp"
+
+                                                                android:text="ການຕັ້ງຄ່າ"
+                                                                android:textAllCaps="true"
+                                                                android:textColor="#FFF"
+                                                                android:textSize="18sp"
+                                                                android:textStyle="bold" />
+
+                                                            <ImageView
+                                                                android:layout_width="96dp"
+                                                                android:layout_height="96dp"
+                                                                android:layout_marginStart="2dp"
+                                                                android:layout_marginTop="2dp"
+                                                                android:layout_marginEnd="2dp"
+                                                                android:layout_marginBottom="2dp"
+                                                                android:background="@drawable/circle_shape"
+                                                                android:padding="20dp"
+                                                                android:src="@drawable/fgvc"/>
+                                                        </LinearLayout>
+
+                                                    </RelativeLayout>
+
+
+                                                </RelativeLayout>
+                                            </androidx.cardview.widget.CardView>
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+
+
+                                    <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:background="#f7f7f7">
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="20dp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
 
-                                        <FrameLayout
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:layout_alignParentBottom="true"
-                                            android:alpha=".50"
-                                            android:background="@drawable/ic_menuback" />
-
-                                        <FrameLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="180dp"
-                                            android:background="@drawable/item_gradient2" />
-
-                                        <RelativeLayout
-                                            android:layout_width="match_parent"
+                                        <LinearLayout
+                                            android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:layout_marginRight="3dp"
-                                            android:gravity="center">
 
-                                            <LinearLayout
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="5dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                            <androidx.cardview.widget.CardView
+                                                android:id="@+id/view1"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
-                                                android:gravity="center"
-                                                android:orientation="vertical">
+                                                android:foreground="?android:attr/selectableItemBackground">
 
-                                                <TextView
+                                                <RelativeLayout
                                                     android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/notosanslaoui_regular"
-                                                    android:gravity="center"
-                                                    android:padding="5dp"
-                                                    android:text="ສີນຄ້າຫຼັກ"
-                                                    android:textAllCaps="true"
-                                                    android:textColor="#FFF"
-                                                    android:textSize="18sp"
-                                                    android:textStyle="bold" />
+                                                    android:layout_height="match_parent"
+                                                    android:background="#f7f7f7">
 
-                                                <ImageView
-                                                    android:layout_width="96dp"
-                                                    android:layout_height="96dp"
-                                                    android:layout_marginStart="2dp"
-                                                    android:layout_marginTop="2dp"
-                                                    android:layout_marginEnd="2dp"
-                                                    android:layout_marginBottom="2dp"
-                                                    android:background="@drawable/circle_shape"
-                                                    android:padding="20dp"
-                                                    android:src="@drawable/tyg" />
-                                            </LinearLayout>
+                                                    <FrameLayout
+                                                        android:layout_width="50dp"
+                                                        android:layout_height="50dp"
+                                                        android:layout_alignParentBottom="true"
+                                                        android:alpha=".50"
+                                                        android:background="@drawable/ic_menuback" />
 
-                                        </RelativeLayout>
+                                                    <FrameLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="178dp"
+                                                        android:background="@drawable/item_gradient2" />
+
+                                                    <RelativeLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginRight="3dp"
+                                                        android:gravity="center">
+
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:gravity="center"
+                                                            android:orientation="vertical">
+
+                                                            <TextView
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:fontFamily="@font/notosanslaoui_regular"
+                                                                android:gravity="center"
+                                                                android:padding="5dp"
+
+                                                                android:text="ຊ່ວຍເຫຼື່ອ"
+                                                                android:textAllCaps="true"
+                                                                android:textColor="#FFF"
+                                                                android:textSize="18sp"
+                                                                android:textStyle="bold" />
+
+                                                            <ImageView
+                                                                android:layout_width="96dp"
+                                                                android:layout_height="96dp"
+                                                                android:layout_marginStart="2dp"
+                                                                android:layout_marginTop="2dp"
+                                                                android:layout_marginEnd="2dp"
+                                                                android:layout_marginBottom="2dp"
+                                                                android:background="@drawable/circle_shape"
+                                                                android:padding="20dp"
+                                                                android:src="@drawable/hhhe"
+                                                                />
+                                                        </LinearLayout>
 
 
-                                    </RelativeLayout>
-                                </androidx.cardview.widget.CardView>
-                            </LinearLayout>
-
-                        </LinearLayout>
+                                                    </RelativeLayout>
 
 
+                                                </RelativeLayout>
+                                            </androidx.cardview.widget.CardView>
 
+                                        </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="20dp"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginRight="5dp"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <androidx.cardview.widget.CardView
-                                    android:id="@+id/view1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:foreground="?android:attr/selectableItemBackground">
-
-                                    <RelativeLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:background="#f7f7f7">
-
-                                        <FrameLayout
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:layout_alignParentBottom="true"
-                                            android:alpha=".50"
-                                            android:background="@drawable/ic_menuback" />
-
-                                        <FrameLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="180dp"
-                                            android:background="@drawable/item_gradient2" />
-
-                                        <RelativeLayout
-                                            android:layout_width="match_parent"
+                                        <LinearLayout
+                                            android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:layout_marginRight="3dp"
-                                            android:gravity="center">
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
 
-                                            <LinearLayout
+                                            <androidx.cardview.widget.CardView
+                                                android:id="@+id/card_logout"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
-                                                android:gravity="center"
-                                                android:orientation="vertical">
+                                                android:foreground="?android:attr/selectableItemBackground">
 
-                                                <TextView
+                                                <RelativeLayout
                                                     android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/notosanslaoui_regular"
-                                                    android:gravity="center"
-                                                    android:padding="5dp"
+                                                    android:layout_height="match_parent"
+                                                    android:background="#f7f7f7">
 
-                                                    android:text="ຊ່ວຍເຫຼື່ອ"
-                                                    android:textAllCaps="true"
-                                                    android:textColor="#FFF"
-                                                    android:textSize="18sp"
-                                                    android:textStyle="bold" />
+                                                    <FrameLayout
+                                                        android:layout_width="50dp"
+                                                        android:layout_height="50dp"
+                                                        android:layout_alignParentBottom="true"
+                                                        android:alpha=".50"
+                                                        android:background="@drawable/ic_menuback" />
 
-                                                <ImageView
-                                                    android:layout_width="96dp"
-                                                    android:layout_height="96dp"
-                                                    android:layout_marginStart="2dp"
-                                                    android:layout_marginTop="2dp"
-                                                    android:layout_marginEnd="2dp"
-                                                    android:layout_marginBottom="2dp"
-                                                    android:background="@drawable/circle_shape"
-                                                    android:padding="20dp"
-                                                    android:src="@drawable/bbdss"
-                                                    />
-                                            </LinearLayout>
+                                                    <FrameLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="178dp"
+                                                        android:background="@drawable/item_gradient2" />
 
+                                                    <RelativeLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginRight="3dp"
+                                                        android:gravity="center">
 
-                                        </RelativeLayout>
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:gravity="center"
+                                                            android:orientation="vertical">
 
+                                                            <TextView
 
-                                    </RelativeLayout>
-                                </androidx.cardview.widget.CardView>
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:fontFamily="@font/notosanslaoui_regular"
+                                                                android:gravity="center"
+                                                                android:padding="5dp"
 
-                            </LinearLayout>
+                                                                android:text="ອອກຈາກລະບົບ"
+                                                                android:textAllCaps="true"
+                                                                android:textColor="#FFF"
+                                                                android:textSize="18sp"
+                                                                android:textStyle="bold" />
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginRight="10dp"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                                                            <ImageView
+                                                                android:layout_width="96dp"
+                                                                android:layout_height="96dp"
+                                                                android:layout_marginStart="2dp"
+                                                                android:layout_marginTop="2dp"
+                                                                android:layout_marginEnd="2dp"
+                                                                android:layout_marginBottom="2dp"
+                                                                android:background="@drawable/circle_shape"
+                                                                android:padding="20dp"
+                                                                android:src="@drawable/bgh"/>
+                                                        </LinearLayout>
 
-                                <androidx.cardview.widget.CardView
-                                    android:id="@+id/card_logout"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:foreground="?android:attr/selectableItemBackground">
+                                                    </RelativeLayout>
 
-                                    <RelativeLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:background="#f7f7f7">
-
-                                        <FrameLayout
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:layout_alignParentBottom="true"
-                                            android:alpha=".50"
-                                            android:background="@drawable/ic_menuback" />
-
-                                        <FrameLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="180dp"
-                                            android:background="@drawable/item_gradient2" />
-
-                                        <RelativeLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_marginRight="3dp"
-                                            android:gravity="center">
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                android:gravity="center"
-                                                android:orientation="vertical">
-
-                                                <TextView
-
-                                                    android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/notosanslaoui_regular"
-                                                    android:gravity="center"
-                                                    android:padding="5dp"
-
-                                                    android:text="ອອກຈາກລະບົບ"
-                                                    android:textAllCaps="true"
-                                                    android:textColor="#FFF"
-                                                    android:textSize="18sp"
-                                                    android:textStyle="bold" />
-
-                                                <ImageView
-                                                    android:layout_width="96dp"
-                                                    android:layout_height="96dp"
-                                                    android:layout_marginStart="2dp"
-                                                    android:layout_marginTop="2dp"
-                                                    android:layout_marginEnd="2dp"
-                                                    android:layout_marginBottom="2dp"
-                                                    android:background="@drawable/circle_shape"
-                                                    android:padding="20dp"
-                                                    android:src="@drawable/bgh"/>
-                                            </LinearLayout>
-
-                                        </RelativeLayout>
+                                                </RelativeLayout>
+                                            </androidx.cardview.widget.CardView>
+                                        </LinearLayout>
+                                    </LinearLayout>
 
 
-                                    </RelativeLayout>
-                                </androidx.cardview.widget.CardView>
-                            </LinearLayout>
 
-                        </LinearLayout>
+
+
+                                </LinearLayout>
+                            </ScrollView>
+                            </androidx.cardview.widget.CardView>
+
 
 
 
                     </LinearLayout>
-                </ScrollView>
+
 
 
             </androidx.cardview.widget.CardView>
-
-
-
         </RelativeLayout>
-
-    </ScrollView>
 
 </RelativeLayout>

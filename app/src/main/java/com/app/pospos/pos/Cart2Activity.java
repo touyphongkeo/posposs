@@ -31,9 +31,7 @@ import com.app.pospos.utils.BaseActivity;
 import com.app.pospos.utils.Utils;
 import com.app.onlinesmartpos.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
-
 import java.util.List;
-
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,8 +42,6 @@ public class Cart2Activity extends BaseActivity {
     private ImageView img_back;
     private Context context;
     private EditText etxt_customer_search;
-
-
     private RecyclerView recyclerView;
     ImageView imgNoProduct;
 

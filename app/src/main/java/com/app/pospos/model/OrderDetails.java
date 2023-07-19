@@ -13,6 +13,10 @@ public class OrderDetails {
     private String sale_price;
 
 
+    @SerializedName("totall_price")
+    private String totall_price;
+
+
     @SerializedName("bath")
     private String bath;
 
@@ -20,7 +24,12 @@ public class OrderDetails {
     @SerializedName("usd")
     private String usd;
 
+    @SerializedName("value")
+    private String value;
 
+    public String getValue() {
+        return value;
+    }
 
 
     public String getsale_qty() {
@@ -40,5 +49,8 @@ public class OrderDetails {
         return usd;
     }
 
+    public String geTotall_price() {
+        return totall_price;
+    }
 
 }

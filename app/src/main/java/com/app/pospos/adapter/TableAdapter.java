@@ -16,6 +16,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.pospos.Constant;
+import com.app.pospos.database.DatabaseAccess;
 import com.app.pospos.model.Table;
 import com.app.pospos.networking.ApiClient;
 import com.app.pospos.networking.ApiInterface;
@@ -60,6 +61,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull final TableAdapter.MyViewHolder holder, int position) {
+        final DatabaseAccess databaseAccess = DatabaseAccess.getInstance(context);
         final String id = customerData.get(position).getId();
         String tbname = customerData.get(position).getTbname();
         String Statustable = customerData.get(position).getStatustable();
@@ -97,9 +99,13 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.MyViewHolder
                 if (Status.equals("1")){
                     Intent i = new Intent(context, PosActivity.class);
                     context.startActivity(i);
+                    databaseAccess.open();
+                    databaseAccess.emptyCart();
                 }else if (Status.equals("2")){
                     Intent i = new Intent(context, Pos2Activity.class);
                     context.startActivity(i);
+                    databaseAccess.open();
+                    databaseAccess.emptyCart();
                 }else if (Status.equals("4")){
 //                    Intent i = new Intent(context, PosActivity.class);
 //                    context.startActivity(i);

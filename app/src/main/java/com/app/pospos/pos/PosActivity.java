@@ -227,9 +227,7 @@ public class PosActivity extends BaseActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Product> customerList;
                     customerList = response.body();
-
                     if (customerList.isEmpty()) {
-
                         recycler_views.setVisibility(View.GONE);
                         imgNoProduct.setVisibility(View.VISIBLE);
                         imgNoProduct.setImageResource(R.drawable.not_found);
@@ -237,7 +235,6 @@ public class PosActivity extends BaseActivity {
                         mShimmerViewContainer.stopShimmer();
                         mShimmerViewContainer.setVisibility(View.GONE);
                     } else {
-
                         //Stopping Shimmer Effects
                         mShimmerViewContainer.stopShimmer();
                         mShimmerViewContainer.setVisibility(View.GONE);

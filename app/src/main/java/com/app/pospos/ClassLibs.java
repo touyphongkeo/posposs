@@ -1,6 +1,8 @@
 package com.app.pospos;
 public class ClassLibs {
     public static String Usr_id1 = "";
+    public static String Id_table = "";
+    public static String Idd = "";
     public static String Status = "";
     public static String Kip_bath = "";
     public static String Tbname = "";

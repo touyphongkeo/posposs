@@ -546,7 +546,7 @@ public class ProductCart extends BaseActivity {
             EditText dialogInput = (EditText) dialogView13.findViewById(R.id.dialog_input);
             TextView dialogTitle = (TextView) dialogView13.findViewById(R.id.dialog_title);
             ListView dialogList = (ListView) dialogView13.findViewById(R.id.dialog_list);
-            dialogTitle.setText(R.string.select_customer);
+            dialogTitle.setText("ລາຍການເລືອກລູກຄ້າ");
             dialogList.setVerticalScrollBarEnabled(true);
             dialogList.setAdapter(customerAdapter);
             dialogInput.addTextChangedListener(new TextWatcher() {

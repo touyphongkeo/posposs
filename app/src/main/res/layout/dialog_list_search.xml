@@ -47,7 +47,7 @@
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="5dp"
             android:padding="5dp"
-            android:background="@drawable/rounded_corners_edittext_light" />
+            android:background="@drawable/round_border" />
 
         <ListView
             android:id="@+id/dialog_list"

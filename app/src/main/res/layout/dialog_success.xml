@@ -28,11 +28,13 @@
                 tools:ignore="VectorDrawableCompat" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="ສັ່ງອາຫານສຳເລັດ"
+                android:fontFamily="@font/notosanslaoui_regular"
+                android:layout_marginTop="11dp"
+                android:gravity="left"
+                android:text="ສັງອາຫານສຳເລັດ"
                 android:textAllCaps="true"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                 android:textColor="@android:color/white" />
@@ -68,10 +70,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/sailec_regular"
+                    android:fontFamily="@font/notosanslaoui_regular"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:text="ສັ່ງສຳເລັດ"
+                    android:text="ສັງສຳເລັດ"
+                    android:textColor="#307A33"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 

@@ -1,6 +1,7 @@
 package com.app.pospos;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -28,12 +29,14 @@ import com.app.pospos.networking.ApiClient;
 import com.app.pospos.networking.ApiInterface;
 import com.app.pospos.print.PrinterActivity;
 import com.app.pospos.product.ProductActivity;
+import com.app.pospos.setting.SettingActivity;
 import com.app.pospos.table.Mtable2Activity;
 import com.app.pospos.table.MtableActivity;
 import com.app.onlinesmartpos.R;
 
 import com.app.pospos.login.LoginActivity;
 
+import com.app.pospos.table_list.Tablelist_Activity;
 import com.app.pospos.utils.BaseActivity;
 import com.app.pospos.utils.LocaleManager;
 import com.bumptech.glide.Glide;
@@ -43,6 +46,8 @@ import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -58,7 +63,14 @@ import static com.app.pospos.ClassLibs.Tbname;
 import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Slidetop;
 
 public class HomeActivity extends BaseActivity {
-    CardView  cardLogout,card_table,card_pos,view1,card_category,card_product;
+
+    private int[] mImages = new int[] {
+            R.drawable.tyhf, R.drawable.cxsd,R.drawable.pos44,R.drawable.zxcz,
+
+    };
+
+
+    CardView  cardLogout,card_table,card_pos,view1,card_category,card_product,list_table,view2;
     //for double back press to exit
     private static final int TIME_DELAY = 2000;
     private static long backPressed;
@@ -72,6 +84,7 @@ public class HomeActivity extends BaseActivity {
     List<rate> rateData;
     ProgressDialog loading;
     ImageView image_view;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +103,11 @@ public class HomeActivity extends BaseActivity {
         view3 = findViewById(R.id.view3);
         image_view = findViewById(R.id.image_view);
         card_product = findViewById(R.id.card_product);
+        list_table = findViewById(R.id.list_table);
+        view2 = findViewById(R.id.view2);
+
+
+
 
 
 
@@ -98,6 +116,17 @@ public class HomeActivity extends BaseActivity {
         String email = sp.getString(Constant.SP_EMAIL, "");
         String password = sp.getString(Constant.SP_PASSWORD, "");
        // views.setText("ລະຫັດຜູ້ໃຊ້: "+email);
+
+        CarouselView carouselView = findViewById(R.id.carousel);
+        carouselView.setPageCount(mImages.length);
+        carouselView.setImageListener(new ImageListener() {
+            @Override
+            public void setImageForPosition(int position, ImageView imageView) {
+                imageView.setImageResource(mImages[position]);
+            }
+        });
+
+
 
         getUser(email);
 
@@ -111,6 +140,8 @@ public class HomeActivity extends BaseActivity {
             view3.setEnabled(false);
             image_view.setEnabled(false);
             card_category.setEnabled(false);
+            list_table.setEnabled(false);
+            view2.setEnabled(false);
         }
 
       //  userType = sp.getString(Constant.SP_USER_TYPE, "");
@@ -123,6 +154,15 @@ public class HomeActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, Mtable2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        view2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, SettingActivity.class);
                 startActivity(intent);
             }
         });
@@ -143,6 +183,14 @@ public class HomeActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
                startActivity(intent);
+            }
+        });
+
+        list_table.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, Tablelist_Activity.class);
+                startActivity(intent);
             }
         });
 

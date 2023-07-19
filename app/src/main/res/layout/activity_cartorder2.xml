@@ -98,15 +98,16 @@
     </LinearLayout>
 
     <EditText
-        android:visibility="gone"
+        android:layout_marginTop="10dp"
         android:id="@+id/etxt_customer_search"
         android:layout_width="match_parent"
+        android:enabled="false"
         android:layout_height="wrap_content"
         android:background="@drawable/round_border"
         android:drawableRight="@drawable/ic_search"
         android:ems="10"
         android:fontFamily="@font/sailec_regular"
-        android:hint="@string/search_here"
+        android:hint="ຄົ້ນຫາ"
         android:inputType="textPersonName"
         android:padding="10dp" />
 
@@ -147,7 +148,16 @@
                 <include layout="@layout/data_placeholder_layout" />
             </LinearLayout>
 
+
+
+
+
+
         </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+
+
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeToRefresh"
@@ -164,13 +174,18 @@
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+
+
+
+
+
+
         <ImageView
             android:padding="50dp"
             android:id="@+id/image_no_product"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginTop="50dp" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -189,9 +204,5 @@
             android:clickable="true"
             app:srcCompat="@drawable/ic_add"
             tools:ignore="VectorDrawableCompat" />
-
-
-
-
     </LinearLayout>
 </LinearLayout>

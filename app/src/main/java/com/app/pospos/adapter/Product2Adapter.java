@@ -6,6 +6,7 @@ import static com.app.pospos.ClassLibs.SALE_BILL;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 
 public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyViewHolder> {
@@ -49,7 +51,7 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
     SharedPreferences sp;
     SharedPreferences.Editor editor;
     String username ="";
-    Integer cust =1;
+    Integer cust =0;
     TextView table;
 
     public Product2Adapter(Context context, List<Product> customerData) {
@@ -89,6 +91,9 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
         String cook = customerData.get(position).getCook();
         String cut_qty = customerData.get(position).getCut_qty();
 
+      //  holder.check_qty.setBackgroundColor(Color.parseColor("#1566e0"));
+     //   holder.check_qty.setText("ຈຳນວນໃນສາງ: "+qty);
+
 
         String imageUrl= Constant.PRODUCT_IMAGE_URL+img_url;
         try {
@@ -119,6 +124,15 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
         int ab = Integer.parseInt(qty);
         int cus = 1;
         int cuty = Integer.parseInt(cut_qty);
+
+        if(qty.equals("0")){
+            holder.check_qty.setBackgroundColor(Color.parseColor("#E32626"));
+            holder.check_qty.setText("ສີນຄ້າບໍມີຈຳນວນ: "+qty+" ລາຍການ");
+        }else {
+            holder.check_qty.setBackgroundColor(Color.parseColor("#0879D3"));
+            holder.check_qty.setText("ສີນຄ້າມີຈຳນວນ: "+qty+" ລາຍການ");
+        }
+
         holder.txt_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,7 +140,8 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
                     String qty1 = holder.txt_number.getText().toString();
                     int get_qty = Integer.parseInt(qty1);
                     if (get_qty>=ab && cuty==cus) {
-                    Toasty.error(context, "ຈຳນວນສີນຄ້າໃນສ້າງບໍພຽງພໍ!", Toast.LENGTH_SHORT).show();
+                  //  Toasty.error(context, "ຈຳນວນສີນຄ້າໃນສ້າງບໍພຽງພໍ!", Toast.LENGTH_SHORT).show();
+                        changeOnConfirm2();
                     } else {
                     get_qty++;
                     holder.txt_number.setText("" + get_qty);
@@ -183,7 +198,8 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
                 String edit_sale = "1";
 
                 if (cust.equals(0)){
-                    Toasty.error(context, "ກະລຸນາກຳນົດຈຳນວນກອນ", Toast.LENGTH_SHORT).show();
+                 //   Toasty.error(context, "ກະລຸນາກຳນົດຈຳນວນກອນ", Toast.LENGTH_SHORT).show();
+                    changeOnConfirm3();
                 }else {
 
                 int check = databaseAccess.addToCart(SALE_BILL,sale_date,Tbname,product_id,product_name,price,cust.toString(),sale_status,edit_sale,username,Image,cut_qty);
@@ -198,6 +214,7 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
                 if (check == 1) {
                  //   Toasty.success(context, "ສັງສຳເລັດ", Toast.LENGTH_SHORT).show();
                     player.start();
+                    successMessage();
                 } else if (check == 2) {
                     Toasty.info(context, "ສີນຄ້ານີ້ມີແລ້ວ", Toast.LENGTH_SHORT).show();
                 } else {
@@ -214,7 +231,7 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
         return customerData.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView txt_product_name,txt_price,txt_number;
+        TextView txt_product_name,txt_price,txt_number,check_qty;
         ImageView images;
         Button btnAddToCart,txt_plus,txt_minus;
         CardView card_product;
@@ -229,6 +246,7 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
             txt_plus = itemView.findViewById(R.id.txt_plus);
             txt_minus = itemView.findViewById(R.id.txt_minus);
             card_product = itemView.findViewById(R.id.card_product);
+            check_qty = itemView.findViewById(R.id.check_qty);
             itemView.setOnClickListener(this);
         }
 
@@ -242,5 +260,21 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
 //            i.putExtra("customer_address", customerData.get(getAdapterPosition()).getCustomerAddress());
 //            context.startActivity(i);
         }
+    }
+
+
+    public void successMessage() {
+        new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE).setTitleText("ເລືອກ!!").setContentText("ເລືອກສີນຄ້າສຳເລັດ!").show();
+
+    }
+
+    public void changeOnConfirm2() {
+        new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE).setTitleText("ຜິດພາດ!!").setContentText("ກະລຸນາກວດເບີງຈຳນວນສີນຄ້າ!").show();
+
+    }
+
+    public void changeOnConfirm3() {
+        new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE).setTitleText("ຜິດພາດ!!").setContentText("ກະລຸນາກຳນົດຈຳນວນກອນ!").show();
+
     }
 }

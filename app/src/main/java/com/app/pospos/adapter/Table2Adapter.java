@@ -1,9 +1,11 @@
 package com.app.pospos.adapter;
 import static com.app.pospos.ClassLibs.Kip_bath;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +21,16 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.pospos.Constant;
+import com.app.pospos.database.DatabaseAccess;
+import com.app.pospos.model.OrderDetails;
+import com.app.pospos.model.Product;
 import com.app.pospos.model.Table;
+import com.app.pospos.networking.ApiClient;
+import com.app.pospos.networking.ApiInterface;
 import com.app.pospos.pos.Cart2Activity;
+import com.app.pospos.pos.Product2Cart;
+import com.app.pospos.print.PrinterActivity;
 import com.app.pospos.utils.Utils;
 import com.app.onlinesmartpos.R;
 
@@ -30,6 +40,9 @@ import java.util.List;
 import java.util.Locale;
 
 import es.dmoral.toasty.Toasty;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class Table2Adapter extends RecyclerView.Adapter<Table2Adapter.MyViewHolder> {
@@ -58,6 +71,7 @@ public class Table2Adapter extends RecyclerView.Adapter<Table2Adapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
+
         final String id = customerData.get(position).getId();
         String tbname = customerData.get(position).getTbname();
         String Statustable = customerData.get(position).getStatustable();
@@ -75,10 +89,12 @@ public class Table2Adapter extends RecyclerView.Adapter<Table2Adapter.MyViewHold
         if(Statustable.equals("1")){
             holder.layout.setBackgroundColor(Color.parseColor("#ABB1B8"));
             holder.txt_category_name.setText("ເລກໂຕະ: "+tbname);
+
         }else if(Statustable.equals("2")){
             holder.layout.setBackgroundColor(Color.parseColor("#FB4106"));
             holder.txt_category_name.setText("ເລກໂຕະ: "+tbname);
             holder.time_date.setText("ໂມງ: "+sale_time+"-"+currentTime);
+
         }else{
             holder.layout.setBackgroundColor(Color.parseColor("#ABB1B8"));
             holder.txt_category_name.setText("ເລກໂຕະ: "+tbname);
@@ -93,7 +109,8 @@ public class Table2Adapter extends RecyclerView.Adapter<Table2Adapter.MyViewHold
                 SALE_BILL = sale_bill;
 
                 if (Status.equals("2")){
-                    Toast.makeText(context, Kip_bath, Toast.LENGTH_SHORT).show();
+                   getProductsData(Tbname);
+                  //  Toast.makeText(context, Kip_bath, Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(context, Cart2Activity.class);
                     context.startActivity(i);
                 }else {
@@ -148,5 +165,33 @@ public class Table2Adapter extends RecyclerView.Adapter<Table2Adapter.MyViewHold
 
 
 
+
+
+
+
+
+
+    public void getProductsData(String tbname) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<List<OrderDetails>> call;
+        call = apiInterface.OrderDetailsByInvoicess(tbname);
+        call.enqueue(new Callback<List<OrderDetails>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<OrderDetails>> call, @NonNull Response<List<OrderDetails>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<OrderDetails> productsList;
+                    productsList = response.body();
+                    if (productsList.isEmpty()) {
+                    } else {
+                    }
+                }
+            }
+            @Override
+            public void onFailure(@NonNull Call<List<OrderDetails>> call, @NonNull Throwable t) {
+                Toast.makeText(context, R.string.something_went_wrong +"OK", Toast.LENGTH_SHORT).show();
+                Log.d("Error : ", t.toString());
+            }
+        });
+     }
 
 }

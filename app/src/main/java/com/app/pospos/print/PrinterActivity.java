@@ -66,6 +66,7 @@ public class PrinterActivity extends AppCompatActivity {
     String customer;
     String users;
     String totalls;
+    String baths;
     RecyclerView recyclerView;
 
     //List<user> DataUser;
@@ -111,14 +112,6 @@ public class PrinterActivity extends AppCompatActivity {
         f = new DecimalFormat("#,###,##0");
 
 
-        //  sp = getSharedPreferences(Constant.SHARED_PREF_NAME, Context.MODE_PRIVATE);
-       // editor = sp.edit();
-      //  String email = sp.getString(Constant.SP_EMAIL, "");
-
-
-
-
-
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View contentView1 = inflater.inflate(R.layout.activity_print, null);
         @SuppressLint("WrongViewCast") RelativeLayout view1 = (RelativeLayout) contentView1.findViewById(R.id.relatived);
@@ -154,10 +147,11 @@ public class PrinterActivity extends AppCompatActivity {
         cart_recyclerview.setLayoutManager(linearLayoutManager);
         cart_recyclerview.setHasFixedSize(true);
          getProductsData(Tbname.toString());
-         get_totall(Tbname.toString());
-         get_office();
+      //   get_totall(Tbname.toString());
+       //  get_office();
        //  get_rate();
 
+        textBill.setText("ເລກທີບີນ:"+SALE_BILL+"/"+Tbname.toString());
 
 
 
@@ -165,17 +159,17 @@ public class PrinterActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  getProductsData(Tbname.toString());
-                  get_totall(Tbname.toString());
+                 getProductsData(Tbname.toString());
+                //  get_totall(Tbname.toString());
            //     get_office();
-                   textBill.setText("ເລກບິນ:"+SALE_BILL+"/"+Tbname.toString());
+           //        textBill.setText("ເລກບິນ:"+SALE_BILL+"/"+Tbname.toString());
            //     barcode.setText(finvoiceId);
 
 
 
                 view1.setDrawingCacheEnabled(true);
                 view1.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-                        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
                 view1.layout(0, 0, view1.getMeasuredWidth(), view1.getMeasuredHeight());
                 view1.buildDrawingCache(true);
                 mView1 = view1;
@@ -203,6 +197,7 @@ public class PrinterActivity extends AppCompatActivity {
         photoPrinter1.printBitmap("image.png_test_print", bitmap1, new PrintHelper.OnPrintFinishCallback() {
             @Override
             public void onFinish() {
+
                 changeOnCon();
             }
         });
@@ -225,10 +220,10 @@ public class PrinterActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                    orderDetails = response.body();
                    loading.dismiss();
-                    get_office();
-                    get_totall(Tbname);
+                   // get_office();
+                 //   get_totall(Tbname);
                 //    get_rate();
-                   orderDetailsAdapter = new OrderDetailsAdapter2(PrinterActivity.this, orderDetails,telphon,usernaes,idsssss,text_v2,text_v7,text_v9,text_vkk,text_v89);
+                   orderDetailsAdapter = new OrderDetailsAdapter2(PrinterActivity.this, orderDetails,telphon,usernaes,idsssss,text_v2,text_v7,text_v9,text_vkk,text_v89,text_v94,text_vlkmn);
                    cart_recyclerview.setAdapter(orderDetailsAdapter);
                    //  getProductsDatas(finvoiceId);
                    Toasty.success(PrinterActivity.this, "Successfuly", Toast.LENGTH_SHORT).show();
@@ -241,9 +236,6 @@ public class PrinterActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 
 
 
@@ -261,8 +253,22 @@ public class PrinterActivity extends AppCompatActivity {
     }
 
 
+  /*  public void changeOnCon() {
+        new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE).setTitleText("Successfuly").setContentText("ພີມສຳເລັດ!").setConfirmText("ຕົກລົງ").setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {@Override
+        public void onClick(SweetAlertDialog sDialog) {
+            try {
+                Intent intent = new Intent(PrinterActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
+            }catch (Exception e){
+            }
+        }
+        }).show();
+    }*/
 
-    public void get_office() {
+
+
+   /* public void get_office() {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<List<office>> call;
         call = apiInterface.get_office();
@@ -274,7 +280,7 @@ public class PrinterActivity extends AppCompatActivity {
                     productData = response.body();
 
                     if (productData.isEmpty()) {
-                        Toasty.warning(PrinterActivity.this, R.string.no_product_found, Toast.LENGTH_SHORT).show();
+                      //  Toasty.warning(PrinterActivity.this, R.string.no_product_found, Toast.LENGTH_SHORT).show();
                     } else {
                         String getcom_name_la = productData.get(0).getcom_name_la();
                         String image = productData.get(0).getimg_url();
@@ -303,9 +309,10 @@ public class PrinterActivity extends AppCompatActivity {
             }
         });
     }
+*/
 
 
-
+/*
     public void get_totall(String Tbname) {
         Log.d("tbname",Tbname);
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
@@ -314,21 +321,33 @@ public class PrinterActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<totall>>() {
             @Override
             public void onResponse(@NonNull Call<List<totall>> call, @NonNull Response<List<totall>> response) {
+
                 if (response.isSuccessful() && response.body() != null) {
                     List<totall> productDatas;
                     productDatas = response.body();
 
                     if (productDatas.isEmpty()) {
-                        Toasty.warning(PrinterActivity.this, R.string.no_product_found, Toast.LENGTH_SHORT).show();
+                        //   Toasty.warning(PrinterActivity.this, R.string.no_product_found, Toast.LENGTH_SHORT).show();
                     } else {
                         totalls = productDatas.get(0).gettotall_price();
+                        baths= productDatas.get(0).gettbath();
+                        String usd = productDatas.get(0).getusd();
+
+
                         double totall_sume = Double.parseDouble(totalls);
-                        text_v2.setText(formatter.format(totall_sume)+" ກິບ");
+                        double formtbath = Double.parseDouble(baths);
+                        text_v2.setText(formatter.format(totall_sume));
                         text_v9.setText(formatter.format(totall_sume)+" ກິບ");
+
+
+                        text_v94.setText(formatter.format(formtbath)+" ກິບ");
+                        text_vlkmn.setText(formatter.format(formtbath)+" ກິບ");
+                        //double totalCost = OrderDetailsAdapter2.bath;
 
 
                     }
                 }
+
             }
             @Override
             public void onFailure(@NonNull Call<List<totall>> call, @NonNull Throwable t) {
@@ -338,6 +357,7 @@ public class PrinterActivity extends AppCompatActivity {
             }
         });
     }
+*/
 
 
 

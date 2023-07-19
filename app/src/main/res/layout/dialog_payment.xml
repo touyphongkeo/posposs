@@ -17,16 +17,6 @@
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
             android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/btn_close"
-                android:layout_width="?attr/actionBarSize"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:tint="@android:color/white"
-                app:srcCompat="@drawable/ic_close"
-                tools:ignore="VectorDrawableCompat" />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -36,6 +26,16 @@
                 android:text="ເລືອກລູກຄ້າ"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                 android:textColor="@android:color/white" />
+            <ImageButton
+                android:id="@+id/btn_close"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="@android:color/white"
+                app:srcCompat="@drawable/ic_close"
+                tools:ignore="VectorDrawableCompat" />
+
+
 
 
 

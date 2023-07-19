@@ -8,6 +8,18 @@
     android:orientation="vertical"
    >
 
+    <com.synnapps.carouselview.CarouselView
+        android:layout_width="match_parent"
+        android:layout_height="198dp"
+        app:pageColor="#00000000"
+        app:fillColor="#FFFFFFFF"
+        app:slideInterval="3000"
+        app:radius="6dp"
+        app:strokeColor="#FF777777"
+        app:strokeWidth="1dp"
+        android:id="@+id/carousel"/>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,10 +29,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
+
             android:orientation="vertical">
 
+
+
+
             <ImageView
+                android:visibility="gone"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 app:srcCompat="@drawable/mnv" />
@@ -32,7 +48,7 @@
                 android:gravity="center"
                 android:maxLines="2"
                 android:padding="5dp"
-                android:text="ບໍລິສັດ ເອພີໄອເອັສ ຈຳກັດ"
+                android:text="ຈຳຫນາຍ ໂປຣແກຣມຮ້ານອາຫານ-ທົ່ວໄປ"
                 android:textAllCaps="true"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
@@ -50,7 +66,7 @@
                 android:autoLink="email"
                 android:fontFamily="@font/sailec_regular"
                 android:gravity="center"
-                android:text="ບ ທົ່ງສະພານທອງ,ມ ສີສັດຕະນາກ,ນະຄອນຫຼວງວຽງຈັນ" />
+                android:text="ບ້ານ ລອ້ງອີນ,ເມືອງ ຮຸນ,ແຂວງ ອຸດົມໄຊ" />
 
 
             <TextView
@@ -60,7 +76,7 @@
                 android:autoLink="email"
                 android:fontFamily="@font/sailec_regular"
                 android:gravity="center"
-                android:text="ເບີໂທຕິດຕໍ: 020 2222 8715 - 020 5522 7484" />
+                android:text="ເບີໂທຕິດຕໍ: 020 5287 8105 - 020 5287 8105" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,24 +84,9 @@
                 android:autoLink="web"
                 android:fontFamily="@font/sailec_regular"
                 android:gravity="center"
-                android:text="E-mail: Sale@apislaos.com" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:autoLink="email"
-                android:fontFamily="@font/sailec_regular"
-                android:gravity="center"
-                android:text="https://www.apislao.net" />
+                android:text="E-mail: keosee822@gmail.com" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:autoLink="email"
-                android:fontFamily="@font/sailec_regular"
-                android:gravity="center"
-                android:text="https://apismas.com/" />
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

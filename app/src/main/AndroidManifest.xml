@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.app.onlinesmartpos">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -29,6 +28,8 @@
         <activity android:name="com.app.pospos.login.LoginActivity" />
         <activity android:name="com.app.pospos.pdf_report.ViewPDFActivity" />
         <activity android:name="com.app.pospos.table.MtableActivity" />
+        <activity android:name="com.app.pospos.table.Addtable_Activity" />
+        <activity android:name="com.app.pospos.table.EdittableActivity" />
         <activity android:name="com.app.pospos.pos.Cart2Activity" />
         <activity android:name="com.app.pospos.about.AboutActivity" />
         <activity android:name="com.app.pospos.image.Get_imageshow" />
@@ -41,6 +42,7 @@
         <activity android:name="com.app.pospos.pos.Pos2Activity" />
         <activity android:name="com.app.pospos.product.ProductActivity" />
         <activity android:name="com.app.pospos.product.Addproduct_Activity" />
+        <activity android:name="com.app.pospos.setting.SettingActivity" />
 
         <activity android:name="com.app.pospos.print.PrinterActivity"/>
         <activity android:name="com.app.pospos.product.ScannerViewActivity" />
@@ -49,9 +51,21 @@
         <activity android:name="com.app.pospos.category.CategoryActivity" />
         <activity android:name="com.app.pospos.category.EditCategoryActivity" />
         <activity android:name="com.app.pospos.category.Addcategory_Activity" />
-
+        <activity android:name="com.app.pospos.table_list.Tablelist_Activity" />
+        <activity android:name="com.app.pospos.customer.CustomerActivity" />
+        <activity android:name="com.app.pospos.customer.EditcustomerActivity" />
+        <activity android:name="com.app.pospos.customer.AddcustomerActivity" />
+        <activity android:name="com.app.pospos.staff.StaffActivity" />
+        <activity android:name="com.app.pospos.staff.EditstaffActivity" />
+        <activity android:name="com.app.pospos.staff.AddstaffActivity" />
+        <activity android:name="com.app.pospos.sale_list.SalelistActivity" />
+        <activity android:name="com.app.pospos.finan_report.FinanreportActivity" />
         <activity android:name="com.app.pospos.HomeActivity" />
-        <activity android:name="com.app.pospos.SplashActivity">
+
+
+
+        <activity android:name="com.app.pospos.SplashActivity" />
+        <activity android:name="com.app.pospos.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

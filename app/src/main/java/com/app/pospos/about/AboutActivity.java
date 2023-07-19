@@ -3,11 +3,20 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.app.pospos.Constant;
 import com.app.onlinesmartpos.R;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
+
 public class AboutActivity extends AppCompatActivity {
     SharedPreferences sp;
+    private int[] mImages = new int[] {
+            R.drawable.tyhf, R.drawable.cxsd,R.drawable.pos44,R.drawable.zxcz,
+
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +27,19 @@ public class AboutActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true); //for back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//for back button
         getSupportActionBar().setTitle("ຂໍ້ມູນຕິດຕໍພົວພັນ");
+
+
+
+        CarouselView carouselView = findViewById(R.id.carousel);
+        carouselView.setPageCount(mImages.length);
+        carouselView.setImageListener(new ImageListener() {
+            @Override
+            public void setImageForPosition(int position, ImageView imageView) {
+                imageView.setImageResource(mImages[position]);
+            }
+        });
+        
+        
     }
 
     //for back button

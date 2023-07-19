@@ -235,7 +235,7 @@ public class DatabaseAccess {
     }
 
 
-    public int addToCart2(String sale_bill,String sale_date,String product_id) {
+    public int addToCart2(String sale_bill,String sale_date,String product_id,String Tbname,String pro_name,String sale_price,String sale_qty,String Image,String cut_qty) {
         Cursor result = database.rawQuery("SELECT * FROM tbsale_save_data WHERE sale_proid='" + product_id + "'", null);
         if (result.getCount() >= 1) {
             return 2;
@@ -243,16 +243,16 @@ public class DatabaseAccess {
             ContentValues values = new ContentValues();
             values.put(Constant.SALE_BILL,sale_bill);
             values.put(Constant.SALE_DTE,sale_date);
-        //  values.put(Constant.TBNAME,sale_table);
+            values.put(Constant.TBNAME,Tbname);
             values.put(Constant.SALE_PROID,product_id);
-//            values.put(Constant.SALE_NAME,sale_name);
-//            values.put(Constant.SALE_PRICE,sale_price);
-//            values.put(Constant.SALE_QTY,sale_qty);
-//            values.put(Constant.SALE_STATUS,sale_status);
-//            values.put(Constant.EDIT_SALE,edit_sale);
-//            values.put(Constant.USERNAME,username);
-//            values.put(Constant.IMG_URL,Image);
-//            values.put(Constant.CUST_QTY,cut_qty);
+            values.put(Constant.SALE_NAME,pro_name);
+            values.put(Constant.SALE_PRICE,sale_price);
+            values.put(Constant.SALE_QTY,sale_qty);
+            values.put(Constant.SALE_STATUS,1);
+            values.put(Constant.EDIT_SALE,1);
+        //    values.put(Constant.USERNAME,username);
+            values.put(Constant.IMG_URL,Image);
+            values.put(Constant.CUST_QTY,cut_qty);
             long check = database.insert(Constant.tbsale_save_data, null, values);
             result.close();
             database.close();

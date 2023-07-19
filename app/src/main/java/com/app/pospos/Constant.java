@@ -6,19 +6,28 @@ public class Constant {
     }
     //For retrofit base url must end with /
   //  public static final String BASE_URL = "https://wes.tpkeosee.com/pages/api/";
-    public static final String BASE_URL = "http://wes.tpkeosee.com/pages/api/";
+    public static final String BASE_URL = "http://mobile.tpkeosee.com/pages/api/";
     //For retrofit base url must end with /
   //  public static final String PRODUCT_IMAGE_URL = "http://yokjork.bigclao.com/pages/pages/img/";
-    public static final String PRODUCT_IMAGE_URL = "http://wes.tpkeosee.com/pages/img/";
+    public static final String PRODUCT_IMAGE_URL = "http://mobile.tpkeosee.com/pages/img/";
     //We will use this to store the user token number into shared preference
-    public static final String SHARED_PREF_NAME = "wes.tpkeosee.com"; //pcakage name+ id /com.app.onlinesmartpos
+    public static final String SHARED_PREF_NAME = "mobile.tpkeosee.com"; //pcakage name+ id /com.app.onlinesmartpos
     public static final String SEARCH_TEXT = "search_text";
 
+    public static final String EMAIL= "email";
     //LOGIN
+    public static final String CUSTOMERNAME= "customer_name";
+    public static final String CUSTOMER_TEL= "customer_tel";
+    public static final String CUSTOMER_DATE= "customer_date";
+    public static final String CUSTOMER_TIME= "customer_time";
+    public static final String NUMBER_CARD= "number_card";
+    public static final String CUSTOMER_ID= "customer_id";
     public static final String SP_PASSWORD = "userpass";
+    public static final String USE_CODE= "use_code";
     public static final String SP_EMAIL = "userid";
     public static final String USER_CODE = "user_code";
     public static final String USERID= "userid";
+    public static final String Id= "Id";
     public static final String USERPASS= "userpass";
     public static final String TBNAME = "tbname";
     public static final String USERNAME = "username";

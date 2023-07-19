@@ -55,7 +55,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:visibility="gone"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -82,6 +82,7 @@
 
 
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/txt_count"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
@@ -122,31 +123,63 @@
 
 
             <TextView
+                android:id="@+id/product_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanslaoui_regular"
+                android:text="ລະຫັດສີນຄ້າ"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/barcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanslaoui_regular"
+                android:text="ລາໂຄດ"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+            <TextView
                 android:id="@+id/pro_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanslaoui_regular"
-                android:gravity="center"
-                android:maxLines="2"
-                android:padding="5dp"
                 android:text="ສີນຄ້າ"
-                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bprice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanslaoui_regular"
+                android:text="ລາຄາຊື້"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/category_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanslaoui_regular"
+                android:text="ໜວດໝູ"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:textSize="16dp"
                 android:textColor="@color/red"
                 android:autoLink="email"
                 android:fontFamily="@font/notosanslaoui_regular"
-                android:gravity="center"
                 android:text="ລາຄາ" />
 
 
@@ -157,7 +190,6 @@
                 android:layout_marginBottom="10dp"
                 android:autoLink="email"
                 android:fontFamily="@font/notosanslaoui_regular"
-                android:gravity="center"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
                 android:text="ຈຳນວນ" />

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -11,9 +12,9 @@
         android:layout_height="wrap_content"
 
         android:layout_marginBottom="10dp"
-        android:foreground="?android:attr/selectableItemBackground"
+
         android:padding="2dp"
-        app:cardBackgroundColor="@color/white"
+        android:background="#FFFFFF"
         app:cardCornerRadius="2dp"
         app:cardElevation="10dp"
         app:cardPreventCornerOverlap="false">
@@ -29,10 +30,13 @@
                 android:id="@+id/table1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FBFBFB">
+                android:background="#FFFFFF"
+                >
                 <!-- Table Heading -->
 
-                <TableRow android:background="@color/white">
+                <TableRow
+                    android:background="#FFFFFF"
+                    >
 
                     <TextView
                         android:id="@+id/txt_product_name"
