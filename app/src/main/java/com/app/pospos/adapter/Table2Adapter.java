@@ -95,6 +95,10 @@ public class Table2Adapter extends RecyclerView.Adapter<Table2Adapter.MyViewHold
             holder.txt_category_name.setText("ເລກໂຕະ: "+tbname);
             holder.time_date.setText("ໂມງ: "+sale_time+"-"+currentTime);
 
+        }else if(Statustable.equals("3")){
+            holder.layout.setBackgroundColor(Color.parseColor("#CA9907"));
+            holder.txt_category_name.setText("ເລກໂຕະ: "+tbname);
+            holder.time_date.setText("ລໍຖ້າຮັບເງີນ "+currentTime);
         }else{
             holder.layout.setBackgroundColor(Color.parseColor("#ABB1B8"));
             holder.txt_category_name.setText("ເລກໂຕະ: "+tbname);
@@ -109,11 +113,17 @@ public class Table2Adapter extends RecyclerView.Adapter<Table2Adapter.MyViewHold
                 SALE_BILL = sale_bill;
 
                 if (Status.equals("2")){
-                   getProductsData(Tbname);
+                //   getProductsData(Tbname);
                   //  Toast.makeText(context, Kip_bath, Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(context, Cart2Activity.class);
                     context.startActivity(i);
-                }else {
+                }else if (Status.equals("3")){
+                   // getProductsData(Tbname);
+                    //  Toast.makeText(context, Kip_bath, Toast.LENGTH_SHORT).show();
+                    Toasty.info(context, "ຊຳລະເງີນ ກຳລັງປັບປຸງລະບົບ", Toast.LENGTH_SHORT).show();
+                  // Intent i = new Intent(context, Cart2Activity.class);
+                    //context.startActivity(i);
+                }else{
                     Toasty.error(context, "ກະລຸນາເປິດໂຕະກອນ!", Toast.LENGTH_SHORT).show();
                 }
 

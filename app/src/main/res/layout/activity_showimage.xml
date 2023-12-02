@@ -105,13 +105,13 @@
         android:layout_marginRight="10dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
@@ -121,15 +121,20 @@
                 android:layout_height="230dp"
                 app:srcCompat="@drawable/image_placeholder" />
 
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_border"
+                android:orientation="vertical">
             <TextView
                 android:id="@+id/product_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanslaoui_regular"
-                android:text="ລະຫັດສີນຄ້າ"
-                android:textColor="@color/colorPrimary"
+                android:text="  ລະຫັດສີນຄ້າ"
+                android:textColor="#0C0C0C"
                 android:textSize="18dp"
+                android:layout_marginLeft="10dp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/barcode"
@@ -137,7 +142,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanslaoui_regular"
                 android:text="ລາໂຄດ"
-                android:textColor="@color/colorPrimary"
+                android:layout_marginLeft="5dp"
+                android:textColor="#0C0C0C"
                 android:textSize="18dp"
                 android:textStyle="bold" />
             <TextView
@@ -146,7 +152,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanslaoui_regular"
                 android:text="ສີນຄ້າ"
-                android:textColor="@color/colorPrimary"
+                android:layout_marginLeft="5dp"
+                android:textColor="#0C0C0C"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -156,7 +163,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanslaoui_regular"
                 android:text="ລາຄາຊື້"
-                android:textColor="@color/colorPrimary"
+                android:textColor="#0C0C0C"
+                android:layout_marginLeft="5dp"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -167,7 +175,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanslaoui_regular"
                 android:text="ໜວດໝູ"
-                android:textColor="@color/colorPrimary"
+                android:textColor="#0C0C0C"
+                android:layout_marginLeft="1dp"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -177,8 +186,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
-                android:textColor="@color/red"
+                android:textColor="#0C0C0C"
                 android:autoLink="email"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
                 android:fontFamily="@font/notosanslaoui_regular"
                 android:text="ລາຄາ" />
 
@@ -190,8 +201,10 @@
                 android:layout_marginBottom="10dp"
                 android:autoLink="email"
                 android:fontFamily="@font/notosanslaoui_regular"
-                android:textColor="@color/colorPrimary"
+                android:textColor="#0C0C0C"
+                android:layout_marginLeft="5dp"
                 android:textSize="16dp"
+                android:textStyle="bold"
                 android:text="ຈຳນວນ" />
 
 
@@ -208,10 +221,47 @@
                 android:inputType="numberDecimal"
                 android:padding="13dp"
                 android:text="1"
-                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textColor="#0C0C0C"
                 android:textColorHint="@color/textColorPrimaryDark"
                 android:textSize="16sp" />
 
+
+
+
+                <EditText
+                    android:id="@+id/options"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/round_border"
+                    android:fontFamily="@font/notosanslaoui_regular"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:padding="13dp"
+                    android:hint="ເພັດ,ຫວານ,ບໍເພັດ...."
+                    android:textStyle="bold"
+                    android:textColor="#0C0C0C"
+                    android:textColorHint="@color/textColorPrimaryDark"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txt_saved"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bgbutton"
+                    android:fontFamily="@font/notosanslaoui_regular"
+                    android:gravity="center"
+                    android:padding="18dp"
+                    android:text="ເພີມເຂົ້າໃນຕາກາ"
+                    android:textColor="#fff"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
             <RelativeLayout
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
@@ -220,20 +270,8 @@
                 android:layout_height="wrap_content">
 
 
-                <TextView
-                    android:id="@+id/txt_saved"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/rounded_button"
-                    android:fontFamily="@font/notosanslaoui_regular"
-                    android:gravity="center"
-                    android:padding="15dp"
-                    android:text="ເພີມເຂົ້າໃນຕາກາ"
-                    android:textColor="#fff"
-                    android:textColorHint="@color/colorPrimary"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
+
+
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

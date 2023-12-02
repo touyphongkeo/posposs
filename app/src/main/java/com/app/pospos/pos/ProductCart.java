@@ -201,6 +201,7 @@ public class ProductCart extends BaseActivity {
                         String sale_qty = lines.get(i).get("sale_qty");
                         String img_url = lines.get(i).get("img_url");
                         String cut_qty = lines.get(i).get("cut_qty");
+                    //    String options = lines.get(i).get("options");
                     //  String productImage = lines.get(i).get("product_image");
 
 //                        String productWeightUnit = lines.get(i).get("product_weight_unit");
@@ -221,11 +222,13 @@ public class ProductCart extends BaseActivity {
                         objp.put("username", user);
                         objp.put("customer_id", customerName);
                         objp.put("cut_qty", cut_qty);
+
 //                        objp.put("product_image", productImage);
 //                        objp.put("product_weight", lines.get(i).get("product_weight") + " " + productWeightUnit);
 //                        objp.put("product_qty", lines.get(i).get("product_qty"));
 //                        objp.put("product_price", lines.get(i).get("product_price"));
                         objp.put("sale_date", currentDate);
+                      //  objp.put("options", options);
                      //   objp.put("car_id", fcar_id);
                         array.put(objp);
 

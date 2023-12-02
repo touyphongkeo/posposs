@@ -55,6 +55,13 @@ public class Sale {
     @SerializedName("img_url")
     private String img_url;
 
+    @SerializedName("sum_amount")
+    private String sum_amount;
+
+
+
+
+
     @SerializedName("value")
     private String value;
     @SerializedName("message")
@@ -134,5 +141,9 @@ public class Sale {
     public String get_Img_url() {
         return img_url;
     }
+    public String getSumamount() {
+        return sum_amount;
+    }
+
 
 }

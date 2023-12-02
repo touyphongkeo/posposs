@@ -32,7 +32,7 @@
 
             <TextView
                 android:id="@+id/namess"
-                android:layout_width="match_parent"
+                android:layout_width="330dp"
                 android:layout_height="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/notosanslaoui_regular"
@@ -40,6 +40,19 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/payment"
+                android:layout_width="140dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/notosanslaoui_regular"
+                android:drawableRight="@drawable/baseline_payment_24"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
 
             <TextView
                 android:id="@+id/print"
@@ -95,8 +108,21 @@
         </LinearLayout>
 
 -->
-    </LinearLayout>
 
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/etxt_amount"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:fontFamily="@font/notosanslaoui_regular"
+        android:text=" ຈຳນວນເງີນທັງໜົດ:0000000"
+        android:padding="7dp" />
     <EditText
         android:layout_marginTop="10dp"
         android:id="@+id/etxt_customer_search"
@@ -104,14 +130,20 @@
         android:enabled="false"
         android:layout_height="wrap_content"
         android:background="@drawable/round_border"
-        android:drawableRight="@drawable/ic_search"
+        android:drawableLeft="@drawable/ic_search"
         android:ems="10"
         android:fontFamily="@font/sailec_regular"
         android:hint="ຄົ້ນຫາ"
         android:inputType="textPersonName"
         android:padding="10dp" />
 
+
+
+
+
+
     <LinearLayout
+        android:layout_marginTop="5dp"
         android:id="@+id/layout1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -149,11 +181,11 @@
             </LinearLayout>
 
 
-
-
-
-
         </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+
+
 
 
 

@@ -1,5 +1,7 @@
 package com.app.pospos.adapter;
 
+import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Slidetop;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -9,16 +11,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.pospos.Constant;
 import com.app.pospos.database.DatabaseAccess;
+import com.app.pospos.model.Customer;
 import com.app.pospos.model.Sale;
+import com.app.pospos.networking.ApiClient;
+import com.app.pospos.networking.ApiInterface;
 import com.app.pospos.utils.Utils;
 import com.app.onlinesmartpos.R;
 import com.bumptech.glide.Glide;
+import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -27,6 +34,10 @@ import java.util.List;
 import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import es.dmoral.toasty.Toasty;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Sale2Adapter extends RecyclerView.Adapter<Sale2Adapter.MyViewHolder> {
     private List<Sale> customerData;
@@ -43,10 +54,13 @@ public class Sale2Adapter extends RecyclerView.Adapter<Sale2Adapter.MyViewHolder
     String sale_price="";
     double aa = 0;
 
+    TextView etxt_amount;
 
-    public Sale2Adapter(Context context, List<Sale> customerData) {
+
+    public Sale2Adapter(Context context, List<Sale> customerData,TextView etxt_amount) {
     this.context = context;
     this.customerData = customerData;
+    this.etxt_amount = etxt_amount;
     utils=new Utils();
     player = MediaPlayer.create(context, R.raw.delete_sound);
     databaseAccess = DatabaseAccess.getInstance(context);
@@ -85,45 +99,44 @@ public class Sale2Adapter extends RecyclerView.Adapter<Sale2Adapter.MyViewHolder
         String statusorder = customerData.get(position).getStatusorder();
         String remark = customerData.get(position).getRemark();
         String img_url = customerData.get(position).get_Img_url();
+        String sumamount = customerData.get(position).getSumamount();
 
+
+
+
+
+
+        DecimalFormat ss = new DecimalFormat(
+                "#,###",
+        new DecimalFormatSymbols(new Locale("pt", "BR")));
+        BigDecimal amount = new BigDecimal(sumamount);
+        etxt_amount.setText("(ມຸນຄ່າລວມ:"+f.format(amount)+" ກິບ)");
 
         String imageUrl= Constant.PRODUCT_IMAGE_URL+img_url;
 
         if (img_url != null) {
             if (img_url.length() < 3) {
-
                 holder.cart_product_image.setImageResource(R.drawable.image_placeholder);
             } else {
-
-
                 Glide.with(context)
                         .load(imageUrl)
                         .placeholder(R.drawable.loading)
                         .error(R.drawable.image_placeholder)
                         .into(holder.cart_product_image);
-
             }
         }
 
 
 
-
-
-
-
         try {
-            holder.txt_item_name.setText(sale_name);
+            holder.txt_item_name.setText("ສີນຄ້າ: "+sale_name);
             holder.txt_number.setText(sale_qty);
-            holder.tabel.setText(sale_table);
-
+            holder.tabel.setText("ລະຫັດ: "+id);
             DecimalFormat dfs = new DecimalFormat(
                     "#,###",
                     new DecimalFormatSymbols(new Locale("pt", "BR")));
             BigDecimal value1 = new BigDecimal(sale_price);
-
-
-            holder.txt_weight.setText("ລາຄາ:"+f.format(value1));
-
+            holder.txt_weight.setText("ລາຄາ:"+f.format(value1)+" ກິບ");
             int a = Integer.parseInt(sale_qty);
             double b = Double.parseDouble(sale_price);
             double ab = b*a;
@@ -133,10 +146,11 @@ public class Sale2Adapter extends RecyclerView.Adapter<Sale2Adapter.MyViewHolder
                     new DecimalFormatSymbols(new Locale("pt", "BR")));
             BigDecimal value = new BigDecimal(ab);
 
-            holder.txt_price.setText("ລວມ:"+f.format(value));
+            holder.txt_price.setText("ລວມ:"+f.format(value)+" ກິບ");
         }catch (Exception e){
 
         }
+
 
 
 
@@ -167,6 +181,65 @@ public class Sale2Adapter extends RecyclerView.Adapter<Sale2Adapter.MyViewHolder
             holder.status.setText("ເສິບແລ້ວ..");
         }
 
+        if (sale_price.equals("0")){
+            holder.img_delete.setImageResource(R.drawable.baseline_check_circle_24);
+        }else {
+            holder.img_delete.setImageResource(R.drawable.baseline_add_circle_24);
+        }
+
+        if (sale_price.equals("0")){
+
+        }else {
+
+
+
+        holder.img_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+                NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(context);
+                dialogBuilder
+                        .withTitle("ຄຳເຕືອນ!")
+                        .withMessage("ທ່ານແນ່ໃຈແລ້ວບໍລາຍການນີ້ແຖມ!")
+                        .withEffect(Slidetop)
+                        .withDialogColor("#FA9909") //use color code for dialog
+                        .withButton1Text("ຕົກລົງ")
+                        .withButton2Text("ຍົກເລີກ")
+                        .setButton1Click(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+
+                                if (utils.isNetworkAvailable(context)) {
+                                    update_free(id);
+                                    customerData.remove(holder.getAdapterPosition());
+                                    dialogBuilder.dismiss();
+                                }
+                                else
+                                {
+                                    dialogBuilder.dismiss();
+                                    Toasty.error(context, R.string.no_network_connection, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        })
+                        .setButton2Click(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                dialogBuilder.dismiss();
+                            }
+                        })
+                        .show();
+
+
+
+            }
+        });
+
+        }
     }
 
 
@@ -212,4 +285,30 @@ public class Sale2Adapter extends RecyclerView.Adapter<Sale2Adapter.MyViewHolder
 
 
 
+    private void update_free(String Id) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<Sale> call = apiInterface.update_free(Id);
+        call.enqueue(new Callback<Sale>() {
+            @Override
+            public void onResponse(@NonNull Call<Sale> call, @NonNull Response<Sale> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    String value = response.body().getValue();
+                    if (value.equals(Constant.KEY_SUCCESS)) {
+                        Toasty.success(context, "ການແຖມຂອງທ່ານສຳເລັດ", Toast.LENGTH_SHORT).show();
+                        notifyDataSetChanged();
+                    }
+                    else if (value.equals(Constant.KEY_FAILURE)){
+                        Toasty.error(context, "ການແຖມຂອງທ່ານຜິດພາດ", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(context, "ບໍ່ສາມາດເຊື່ອມຕໍ່ອິນເຕີເນັດ", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+            @Override
+            public void onFailure(@NonNull Call<Sale> call, Throwable t) {
+                Toast.makeText(context, "Error! " + t.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

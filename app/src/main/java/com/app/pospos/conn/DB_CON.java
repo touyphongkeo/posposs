@@ -13,7 +13,7 @@ public class  DB_CON {
     private static String ip = "141.164.96.15";
     private static String port = "1455";
     private static String classs = "net.sourceforge.jtds.jdbc.Driver";
-    private static String db = "NAMPAPA_VTE";
+    private static String db = "NAMPAPA_VTEff";
     private static String un = "npp_vte";
     private static String password = "nppvte@2022";
     private static Context context;
@@ -30,6 +30,7 @@ public class  DB_CON {
                     + "databaseName=" + db + ";user=" + un + ";password="
                     + password + ";";
             conn = DriverManager.getConnection(ConnURL);
+
 
         } catch (SQLException e) {
             Log.d(LOG, e.getMessage());

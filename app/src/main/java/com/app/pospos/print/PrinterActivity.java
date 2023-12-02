@@ -44,7 +44,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
@@ -83,7 +82,7 @@ public class PrinterActivity extends AppCompatActivity {
     EditText txt_stocks;
 
     DecimalFormat formatter = new DecimalFormat("#,###,###");
-    TextView textBill,text_v9,text_v7,textBillDate,usernaes,idsssss,barcode,telphon,onpay,text6,text_vkk,text_v89,text_v94,text_vlkmn;
+    TextView cn_kip,cnkip,textBill,text_tax,text_v9,text_v7,text_v6,text_v74,staff,textBillDate,usernaes,idsssss,barcode,telphon,onpay,text6,text_vkk,text_v89,text_v94,text_vlkmn;
   //  private OrderDetails_orderAdapter orderDetails_orderAdapter;
 
     String[] mobileArray = {"ທົດລອງ 01 2005 ","ທົດລອງ2","WindowsMobile","Blackberry","WebOS","Ubuntu","Windows7","Max OS X"};
@@ -93,8 +92,6 @@ public class PrinterActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
 
     ImageView imagebarcode,images;
-
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +103,10 @@ public class PrinterActivity extends AppCompatActivity {
 
         button1= findViewById(R.id.button1);
         button2= findViewById(R.id.button2);
+
+        sp = getSharedPreferences(Constant.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        editor = sp.edit();
+        String email = sp.getString(Constant.SP_EMAIL, "");
 
 
         txt_stocks= findViewById(R.id.txt_stocks);
@@ -131,17 +132,27 @@ public class PrinterActivity extends AppCompatActivity {
         text6 = view1.findViewById(R.id.text6);
         text_vkk = view1.findViewById(R.id.text_vkk);
         text_v89 = view1.findViewById(R.id.text_v89);
+        cn_kip = view1.findViewById(R.id.cn_kip);
         text_v94 = view1.findViewById(R.id.text_v94);
         text_vlkmn = view1.findViewById(R.id.text_vlkmn);
+        cnkip = view1.findViewById(R.id.cnkip);
+        text_tax = view1.findViewById(R.id.text_tax);
+        staff = view1.findViewById(R.id.staff);
+        text_v6 = view1.findViewById(R.id.text_v6);
+        text_v74 = view1.findViewById(R.id.text_v74);
+        staff.setText("ຜູ້ເຊັກບີນ: "+email);
 
         String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(new Date());
 
-        String currentTime = new SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(new Date()); //HH:mm:ss a
+        String currentTime = new SimpleDateFormat("hh:mm:ss a", Locale.ENGLISH).format(new Date()); //HH:mm:ss a
 
         textBillDate.setText("ວັນທີ: "+currentDate+" ເວລາ: "+currentTime);
-        onpay.setText("OnePay "+currentDate+"/"+currentTime);
+        onpay.setText("OnePay "+currentDate+"  "+currentTime);
 
         cart_recyclerview = view1.findViewById(R.id.cart_recyclerview);
+
+        telphon.setText("ວັນທີເດືອນປີ: "+currentDate+"  "+currentTime);
+
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(PrinterActivity.this, LinearLayoutManager.VERTICAL, false);
         cart_recyclerview.setLayoutManager(linearLayoutManager);
@@ -151,7 +162,7 @@ public class PrinterActivity extends AppCompatActivity {
        //  get_office();
        //  get_rate();
 
-        textBill.setText("ເລກທີບີນ:"+SALE_BILL+"/"+Tbname.toString());
+        textBill.setText("ເລກທີບີນ:"+SALE_BILL+"  ("+Tbname.toString()+")");
 
 
 
@@ -159,12 +170,11 @@ public class PrinterActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 getProductsData(Tbname.toString());
-                //  get_totall(Tbname.toString());
-           //     get_office();
-           //        textBill.setText("ເລກບິນ:"+SALE_BILL+"/"+Tbname.toString());
-           //     barcode.setText(finvoiceId);
-
+                getProductsData(Tbname.toString());
+               //      get_totall(Tbname.toString());
+               //     get_office();
+               //        textBill.setText("ເລກບິນ:"+SALE_BILL+"/"+Tbname.toString());
+               //     barcode.setText(finvoiceId);
 
 
                 view1.setDrawingCacheEnabled(true);
@@ -223,7 +233,7 @@ public class PrinterActivity extends AppCompatActivity {
                    // get_office();
                  //   get_totall(Tbname);
                 //    get_rate();
-                   orderDetailsAdapter = new OrderDetailsAdapter2(PrinterActivity.this, orderDetails,telphon,usernaes,idsssss,text_v2,text_v7,text_v9,text_vkk,text_v89,text_v94,text_vlkmn);
+                   orderDetailsAdapter = new OrderDetailsAdapter2(PrinterActivity.this, orderDetails,telphon,usernaes,idsssss,text_v2,text_v7,text_v9,text_vkk,text_v89,text_v94,text_vlkmn,cn_kip,cnkip,text_tax,text_v6,text_v74);
                    cart_recyclerview.setAdapter(orderDetailsAdapter);
                    //  getProductsDatas(finvoiceId);
                    Toasty.success(PrinterActivity.this, "Successfuly", Toast.LENGTH_SHORT).show();

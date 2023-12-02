@@ -129,7 +129,7 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
             holder.check_qty.setBackgroundColor(Color.parseColor("#E32626"));
             holder.check_qty.setText("ສີນຄ້າບໍມີຈຳນວນ: "+qty+" ລາຍການ");
         }else {
-            holder.check_qty.setBackgroundColor(Color.parseColor("#0879D3"));
+            holder.check_qty.setBackgroundColor(Color.parseColor("#3C8E40"));
             holder.check_qty.setText("ສີນຄ້າມີຈຳນວນ: "+qty+" ລາຍການ");
         }
 
@@ -212,9 +212,9 @@ public class Product2Adapter extends RecyclerView.Adapter<Product2Adapter.MyView
                     Pos2Activity.txtCount.setText(String.valueOf(count));
                 }
                 if (check == 1) {
-                 //   Toasty.success(context, "ສັງສຳເລັດ", Toast.LENGTH_SHORT).show();
+                    Toasty.success(context, "ສັງສຳເລັດ", Toast.LENGTH_SHORT).show();
                     player.start();
-                    successMessage();
+                 //   successMessage();
                 } else if (check == 2) {
                     Toasty.info(context, "ສີນຄ້ານີ້ມີແລ້ວ", Toast.LENGTH_SHORT).show();
                 } else {

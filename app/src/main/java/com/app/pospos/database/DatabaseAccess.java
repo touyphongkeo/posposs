@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.app.pospos.Constant;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -235,7 +238,7 @@ public class DatabaseAccess {
     }
 
 
-    public int addToCart2(String sale_bill,String sale_date,String product_id,String Tbname,String pro_name,String sale_price,String sale_qty,String Image,String cut_qty) {
+    public int addToCart2(String sale_bill,String sale_date,String product_id,String Tbname,String pro_name,String sale_price,String sale_qty,String Image,String cut_qty,String optionss) {
         Cursor result = database.rawQuery("SELECT * FROM tbsale_save_data WHERE sale_proid='" + product_id + "'", null);
         if (result.getCount() >= 1) {
             return 2;
@@ -253,6 +256,7 @@ public class DatabaseAccess {
         //    values.put(Constant.USERNAME,username);
             values.put(Constant.IMG_URL,Image);
             values.put(Constant.CUST_QTY,cut_qty);
+            values.put(Constant.Options,optionss);
             long check = database.insert(Constant.tbsale_save_data, null, values);
             result.close();
             database.close();
@@ -328,6 +332,7 @@ public class DatabaseAccess {
                 map.put(Constant.EDIT_SALE, cursor.getString(cursor.getColumnIndex("edit_sale")));
                 map.put(Constant.IMG_URL, cursor.getString(cursor.getColumnIndex("img_url")));
                 map.put(Constant.CUST_QTY, cursor.getString(cursor.getColumnIndex("cut_qty")));
+              //  map.put(Constant.Options, cursor.getString(cursor.getColumnIndex("options")));
                 product.add(map);
             } while (cursor.moveToNext());
         }
@@ -384,6 +389,7 @@ public class DatabaseAccess {
                 map.put("edit_sale", cursor.getString(9));
                 map.put("username", cursor.getString(10));
                 map.put("img_url", cursor.getString(11));
+                map.put("options", cursor.getString(13));
 
                 productCategory.add(map);
             } while (cursor.moveToNext());
@@ -417,6 +423,37 @@ public class DatabaseAccess {
         database.close();
 
         return paymentMethod;
+    }
+
+
+
+
+
+    //update employee
+   /* public boolean UpdateOfsiion(String category_id,String category_name) {
+        long check = 1;
+        try {
+            Connection con = DB_CON.CONN();
+            if (con == null) {
+            } else {
+                String query = "update AP_Groups set grp_nm_l=N'"+category_name+"' where grp_id="+category_id+"";
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+                check = 1;
+            }
+            con.close();
+        } catch (Exception ex) {
+        }
+        return check != -1;
+    }*/
+
+
+
+    public void UpdateOfsiion(String category_id, String options) {
+        ContentValues values = new ContentValues();
+        values.put("options", options);
+        database.update("tbsale_save_data", values, "Id=?", new String[]{category_id});
+
     }
 
 

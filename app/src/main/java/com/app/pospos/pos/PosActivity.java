@@ -93,6 +93,8 @@ public class PosActivity extends BaseActivity {
         getCatgory();
         databaseAccess = DatabaseAccess.getInstance(PosActivity.this);
 
+        imgNoProduct.setVisibility(View.GONE);
+        txtNoProducts.setVisibility(View.GONE);
 
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,9 +155,7 @@ public class PosActivity extends BaseActivity {
         if (utils.isNetworkAvailable(PosActivity.this)) {
             getProduct("");
         }else {
-            recycler_views.setVisibility(View.GONE);
-            imgNoProduct.setVisibility(View.VISIBLE);
-            imgNoProduct.setImageResource(R.drawable.not_found);
+
             swipeToRefreshs.setVisibility(View.GONE);
             mShimmerViewContainer.stopShimmer();
             mShimmerViewContainer.setVisibility(View.GONE);
@@ -230,6 +230,7 @@ public class PosActivity extends BaseActivity {
                     if (customerList.isEmpty()) {
                         recycler_views.setVisibility(View.GONE);
                         imgNoProduct.setVisibility(View.VISIBLE);
+
                         imgNoProduct.setImageResource(R.drawable.not_found);
                         //Stopping Shimmer Effects
                         mShimmerViewContainer.stopShimmer();

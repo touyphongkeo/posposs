@@ -6,6 +6,7 @@ import com.app.pospos.model.Cook;
 import com.app.pospos.model.Customer;
 import com.app.pospos.model.Login;
 import com.app.pospos.model.OrderDetails;
+import com.app.pospos.model.Ordermax;
 import com.app.pospos.model.Product;
 import com.app.pospos.model.Sale;
 import com.app.pospos.model.Salelist;
@@ -116,6 +117,14 @@ public interface ApiInterface {
     Call<Table> updatetable(
     @Field(Constant.Id) String id,
     @Field(Constant.TBNAME) String tbname);
+
+
+    @FormUrlEncoded
+    @POST("update_insert.php")
+    Call<Sale> updatetiv(
+            @Field(Constant.TYPERS) String tpers,
+            @Field(Constant.TMONEYDG) String tmoneydg,
+            @Field(Constant.TBNAME) String tbname);
 
     @FormUrlEncoded
     @POST("add_category.php")
@@ -315,6 +324,13 @@ public interface ApiInterface {
     );
 
 
+    @FormUrlEncoded
+    @POST("update_free.php")
+    Call<Sale> update_free(
+            @Field(Constant.ID) String Id
+    );
+
+
 
     @FormUrlEncoded
     @POST("update_customer.php")
@@ -342,6 +358,10 @@ public interface ApiInterface {
     Call<List<Staff>> get_staff(
     @Query(Constant.SEARCH_TEXT) String searchText
     );
+
+    @GET("get_ordermax.php")
+    Call<List<Ordermax>> get_ordemax();
+
 
 
     @FormUrlEncoded
@@ -393,8 +413,7 @@ public interface ApiInterface {
      @Part(Constant.USERNAME) RequestBody username,
      @Part(Constant.USERPASS) RequestBody userpass,
      @Part(Constant.EMAIL) RequestBody email,
-     @Part(Constant.USERSTATUS) RequestBody userstatus
-    );
+     @Part(Constant.USERSTATUS) RequestBody userstatus);
 
     @GET("get_financial_report.php")
     Call<List<financial_report>> get_financial_report(

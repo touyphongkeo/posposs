@@ -3,15 +3,21 @@ package com.app.pospos;
 public class Constant {
     Constant() {
         //write your action here if need
+        //dfgdffgdfgdg
     }
     //For retrofit base url must end with /
-  //  public static final String BASE_URL = "https://wes.tpkeosee.com/pages/api/";
-    public static final String BASE_URL = "http://mobile.tpkeosee.com/pages/api/";
-    //For retrofit base url must end with /
-  //  public static final String PRODUCT_IMAGE_URL = "http://yokjork.bigclao.com/pages/pages/img/";
-    public static final String PRODUCT_IMAGE_URL = "http://mobile.tpkeosee.com/pages/img/";
-    //We will use this to store the user token number into shared preference
-    public static final String SHARED_PREF_NAME = "mobile.tpkeosee.com"; //pcakage name+ id /com.app.onlinesmartpos
+
+  /*  public static final String BASE_URL = "http://wes.tpkeosee.com/pages/api/";
+    public static final String PRODUCT_IMAGE_URL = "https://wes.tpkeosee.com/pages/img/";
+    public static final String SHARED_PREF_NAME = "wes.tpkeosee.com";*/
+
+   /* public static final String BASE_URL = "http://mobile.tpkeosee.com//pages/api/";
+    public static final String PRODUCT_IMAGE_URL = "https://mobile.tpkeosee.com/pages/img/";
+    public static final String SHARED_PREF_NAME = "mobile.tpkeosee.com";*/
+
+   public static final String BASE_URL = "https://touy.tpkeosee.com/pages/api/";
+    public static final String PRODUCT_IMAGE_URL = "https://touy.tpkeosee.com/pages/img/";
+    public static final String SHARED_PREF_NAME = "touy.tpkeosee.com";
     public static final String SEARCH_TEXT = "search_text";
 
     public static final String EMAIL= "email";
@@ -28,6 +34,8 @@ public class Constant {
     public static final String USER_CODE = "user_code";
     public static final String USERID= "userid";
     public static final String Id= "Id";
+    public static final String TYPERS= "tpers";
+    public static final String TMONEYDG= "tmoneydg";
     public static final String USERPASS= "userpass";
     public static final String TBNAME = "tbname";
     public static final String USERNAME = "username";
@@ -55,6 +63,7 @@ public class Constant {
     public static final String BPRICE= "bprice";
     public static final String PRICE= "price";
     public static final String CUST_QTY= "cut_qty";
+    public static final String Options= "options";
     public static final String BARCODE= "barcode";
     public static final String PRODUCT_NAME= "product_name";
 

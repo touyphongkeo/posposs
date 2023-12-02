@@ -45,6 +45,7 @@
         <activity android:name="com.app.pospos.setting.SettingActivity" />
 
         <activity android:name="com.app.pospos.print.PrinterActivity"/>
+        <activity android:name="com.app.pospos.print.PrintsendActivity"/>
         <activity android:name="com.app.pospos.product.ScannerViewActivity" />
         <activity android:name="com.app.pospos.product.EscannerViewActivity" />
         <activity android:name="com.app.pospos.product.Editproduct_Activity" />
@@ -59,7 +60,9 @@
         <activity android:name="com.app.pospos.staff.EditstaffActivity" />
         <activity android:name="com.app.pospos.staff.AddstaffActivity" />
         <activity android:name="com.app.pospos.sale_list.SalelistActivity" />
+        <activity android:name="com.app.pospos.ofsion.Addofsion_Activity" />
         <activity android:name="com.app.pospos.finan_report.FinanreportActivity" />
+        <activity android:name="com.app.pospos.ordermax.OrdermaxActivity" />
         <activity android:name="com.app.pospos.HomeActivity" />
 
 
@@ -68,7 +71,6 @@
         <activity android:name="com.app.pospos.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -16,6 +16,7 @@ import com.app.pospos.Constant;
 import com.app.pospos.HomeActivity;
 import com.app.pospos.customer.CustomerActivity;
 import com.app.pospos.finan_report.FinanreportActivity;
+import com.app.pospos.ordermax.OrdermaxActivity;
 import com.app.pospos.sale_list.SalelistActivity;
 import com.app.pospos.staff.StaffActivity;
 import com.synnapps.carouselview.CarouselView;
@@ -24,7 +25,7 @@ import com.synnapps.carouselview.ImageListener;
 public class SettingActivity extends AppCompatActivity {
     SharedPreferences sp;
     ImageView img_back;
-    CardView card_customer,card_staff,finan_report,card_listsaled;
+    CardView card_customer,card_staff,finan_report,card_listsaled,card_ordermax;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class SettingActivity extends AppCompatActivity {
         finan_report = findViewById(R.id.finan_report);
         img_back = findViewById(R.id.img_back);
         card_listsaled = findViewById(R.id.card_listsaled);
+        card_ordermax = findViewById(R.id.card_ordermax);
 
         card_listsaled.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +59,16 @@ public class SettingActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+        card_ordermax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SettingActivity.this, OrdermaxActivity.class);
+                startActivity(i);
+            }
+        });
+
 
 
         card_staff.setOnClickListener(new View.OnClickListener() {

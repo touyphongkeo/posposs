@@ -447,7 +447,7 @@
                                         android:orientation="vertical">
 
                                         <androidx.cardview.widget.CardView
-                                            android:id="@+id/list_table"
+                                            android:id="@+id/card_ordermax"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:foreground="?android:attr/selectableItemBackground">

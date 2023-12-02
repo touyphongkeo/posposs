@@ -1,5 +1,6 @@
 package com.app.pospos.adapter;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.util.Log;
@@ -12,10 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.app.pospos.Constant;
 import com.app.pospos.database.DatabaseAccess;
 import com.app.onlinesmartpos.R;
+import com.app.pospos.ofsion.Addofsion_Activity;
+import com.app.pospos.pos.Cart2Activity;
 import com.bumptech.glide.Glide;
 
 import java.math.BigDecimal;
@@ -26,6 +30,8 @@ import java.util.List;
 import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import static com.app.pospos.ClassLibs.IDS;
+import static com.app.pospos.ClassLibs.Options;
 import es.dmoral.toasty.Toasty;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> {
     private List<HashMap<String, String>> cartProduct;
@@ -74,9 +80,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         final String edit_sale = cartProduct.get(position).get("edit_sale");
         final String username = cartProduct.get(position).get("username");
         final String img_url = cartProduct.get(position).get("img_url");
+        final String options = cartProduct.get(position).get("options");
         String imageUrl= Constant.PRODUCT_IMAGE_URL+img_url;
         final DecimalFormat f = new DecimalFormat("#,###");
 
+
+
+        if (options==null){
+            holder.status.setText("ລົດຊາດ: ບໍມີ");
+        }else {
+            holder.status.setText("ລົດຊາດ: ("+options+")");
+        }
 
         databaseAccess.open();
         totalPrice = databaseAccess.getTotalPrice();
@@ -84,7 +98,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         "#,###.00",
         new DecimalFormatSymbols(new Locale("pt", "BR")));
         BigDecimal value = new BigDecimal(totalPrice);*/
-        txtTotalPrice.setText("ຈຳນວນເງີນລວມ: "+f.format(totalPrice)+" ກິບ");
+        txtTotalPrice.setText("("+"ຈຳນວນເງີນລວມ: "+f.format(totalPrice)+" ກິບ"+")");
 
 
         if (img_url != null) {
@@ -110,14 +124,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                 databaseAccess.open();
                 boolean deleteProduct = databaseAccess.deleteProductFromCart(Id);
                 if (deleteProduct) {
-                  //  Toasty.success(context, "ລົບສຳເລັດ", Toast.LENGTH_SHORT).show();
+                    Toasty.success(context, "ລົບສຳເລັດ", Toast.LENGTH_SHORT).show();
                     player.start();
                     cartProduct.remove(holder.getAdapterPosition());
                     notifyItemRemoved(holder.getAdapterPosition());
 
                     databaseAccess.open();
                     totalPrice = databaseAccess.getTotalPrice();
-                    txtTotalPrice.setText("ຈຳນວນເງີນລວມ: "+f.format(totalPrice)+" ກິບ");
+                    txtTotalPrice.setText("("+"ຈຳນວນເງີນລວມ: "+f.format(totalPrice)+" ກິບ"+")");
                 } else {
                     Toasty.error(context,"ຜິດພາດ", Toast.LENGTH_SHORT).show();
                 }
@@ -138,17 +152,29 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         });
 
 
+        holder.CardviewId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IDS = Id;
+                Options = options;
+                Intent i = new Intent(context, Addofsion_Activity.class);
+                context.startActivity(i);
+
+            }
+        });
+
+
 
 
 
         try {
-        holder.txt_item_name.setText(sale_name);
+        holder.txt_item_name.setText("ສີນຄ້າ: "+sale_name);
         DecimalFormat dfs = new DecimalFormat(
         "#,###.00",
         new DecimalFormatSymbols(new Locale("pt", "BR")));
             BigDecimal values = new BigDecimal(sale_price);
-        holder.txt_price.setText(f.format(values)+" ກີບ");
-        holder.txt_weight.setText("ຈຳນວນ:"+sale_qty);
+        holder.txt_price.setText("ມຸນຄ່າ: "+f.format(values)+" ກີບ");
+        holder.txt_weight.setText("ຈຳນວນສັ່ງ:"+sale_qty+" ລາຍການ");
         }catch (Exception e){
        }
 
@@ -171,9 +197,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(context);
                         databaseAccess.open();
                         databaseAccess.updateProductQty(Id, "" + bv);
-                        holder.txt_weight.setText("ຈຳນວນ:"+bv);
+                        holder.txt_weight.setText("ຈຳນວນສັ່ງ:"+bv+" ລາຍການ");
                         totalPrice = totalPrice + Double.valueOf(sale_price);
-                        txtTotalPrice.setText("ຈຳນວນເງີນລວມ: "+f.format(totalPrice)+" ກິບ");
+                        txtTotalPrice.setText("("+"ຈຳນວນເງີນລວມ: "+f.format(totalPrice)+" ກິບ"+")");
 
                 }catch (Exception e){
                 }
@@ -200,9 +226,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(context);
                         databaseAccess.open();
                         databaseAccess.updateProductQty(Id, "" + bv);
-                        holder.txt_weight.setText("ຈຳນວນ:" + bv);
+                        holder.txt_weight.setText("ຈຳນວນສັ່ງ:" + bv+" ລາຍການ");
                         totalPrice = totalPrice + Double.valueOf(sale_price);
-                        txtTotalPrice.setText("ຈຳນວນເງີນລວມ: "+f.format(totalPrice)+" ກິບ");
+                        txtTotalPrice.setText("("+"ຈຳນວນເງີນລວມ: "+f.format(totalPrice)+" ກິບ"+")");
                     }
 
             }
@@ -217,8 +243,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-    TextView txt_item_name,txt_weight,txtQtyNumber,txtPlus,txt_minus,txt_price;
+    TextView txt_item_name,txt_weight,txtQtyNumber,txtPlus,txt_minus,txt_price,status;
     ImageView img_delete;
+
+    CardView CardviewId;
     ImageView cart_product_image;
     public MyViewHolder(View itemView) {
     super(itemView);
@@ -231,6 +259,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
             txtQtyNumber = itemView.findViewById(R.id.txt_number);
             txt_minus = itemView.findViewById(R.id.txt_minus);
             txtPlus = itemView.findViewById(R.id.txt_plus);
+            CardviewId = itemView.findViewById(R.id.CardviewId);
+            status = itemView.findViewById(R.id.status);
         }
     }
 }

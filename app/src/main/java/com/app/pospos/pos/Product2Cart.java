@@ -19,11 +19,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.app.pospos.Constant;
 import com.app.pospos.HomeActivity;
 import com.app.pospos.adapter.CartAdapter;
@@ -34,11 +32,9 @@ import com.app.pospos.networking.ApiInterface;
 import com.app.pospos.utils.BaseActivity;
 import com.app.pospos.utils.Utils;
 import com.app.onlinesmartpos.R;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,14 +42,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-
 import es.dmoral.toasty.Toasty;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 public class Product2Cart extends BaseActivity {
     CartAdapter CartAdapter;
     ImageView imgNoProduct,img_back;
@@ -343,11 +337,8 @@ public class Product2Cart extends BaseActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 Log.d("data", s.toString());
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-
 //                double discount = 0;
 //                String getDiscount = s.toString();
 //                if (!getDiscount.isEmpty()) {
@@ -536,7 +527,7 @@ public class Product2Cart extends BaseActivity {
 
       dialogImgCustomer.setOnClickListener(v -> {
             customerAdapter = new ArrayAdapter<>(Product2Cart.this, android.R.layout.simple_list_item_1);
-           customerAdapter.addAll(customerNames);
+            customerAdapter.addAll(customerNames);
             AlertDialog.Builder dialog13 = new AlertDialog.Builder(Product2Cart.this);
             View dialogView13 = getLayoutInflater().inflate(R.layout.dialog_list_search, null);
             dialog13.setView(dialogView13);

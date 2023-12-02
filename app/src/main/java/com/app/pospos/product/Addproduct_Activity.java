@@ -160,7 +160,6 @@ public class Addproduct_Activity extends BaseActivity {
                 TextView dialogTitle = dialogView.findViewById(R.id.dialog_title);
                 ListView dialogList = dialogView.findViewById(R.id.dialog_list);
 
-
                 dialogTitle.setText("ເລືອກສະຖານະ");
                 dialogList.setVerticalScrollBarEnabled(true);
                 dialogList.setAdapter(statusAdapter);
@@ -465,31 +464,19 @@ public class Addproduct_Activity extends BaseActivity {
     }
 */
 
-
-
-
     private void  addProduct(String barcodes,String product_names,String category_ids,String bprices,String prices,String qtys,String sizes,String cut_qtys,String cooks) {
-
         loading=new ProgressDialog(this);
         loading.setCancelable(false);
         loading.setMessage(getString(R.string.please_wait));
         loading.show();
-
-        // Map is used to multipart the file using okhttp3.RequestBody
-
         if (mediaPath.isEmpty()) {
             Toasty.warning(this, R.string.choose_product_image, Toast.LENGTH_SHORT).show();
             loading.dismiss();
-        }
-        else {
-
+        } else {
             File file = new File(mediaPath);
-
-            // Parsing any Media type file
             RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
             MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
             RequestBody filename = RequestBody.create(MediaType.parse("text/plain"), file.getName());
-
             RequestBody barcode = RequestBody.create(MediaType.parse("text/plain"), barcodes);
             RequestBody product_name = RequestBody.create(MediaType.parse("text/plain"), product_names);
             RequestBody category_id = RequestBody.create(MediaType.parse("text/plain"), category_ids);

@@ -1,5 +1,4 @@
 package com.app.pospos;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -15,11 +14,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
 import com.app.pospos.about.AboutActivity;
 import com.app.pospos.adapter.RateAdapter;
 import com.app.pospos.category.CategoryActivity;
@@ -33,9 +30,7 @@ import com.app.pospos.setting.SettingActivity;
 import com.app.pospos.table.Mtable2Activity;
 import com.app.pospos.table.MtableActivity;
 import com.app.onlinesmartpos.R;
-
 import com.app.pospos.login.LoginActivity;
-
 import com.app.pospos.table_list.Tablelist_Activity;
 import com.app.pospos.utils.BaseActivity;
 import com.app.pospos.utils.LocaleManager;
@@ -48,25 +43,19 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 import static com.app.pospos.ClassLibs.Tbname;
 import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Slidetop;
-
 public class HomeActivity extends BaseActivity {
-
     private int[] mImages = new int[] {
-            R.drawable.tyhf, R.drawable.cxsd,R.drawable.pos44,R.drawable.zxcz,
-
+            R.drawable.tyhf, R.drawable.cxsd,R.drawable.pos44,R.drawable.zxcz,R.drawable.klo,
     };
 
 
@@ -75,7 +64,6 @@ public class HomeActivity extends BaseActivity {
     private static final int TIME_DELAY = 2000;
     private static long backPressed;
     private Context context;
-
     SharedPreferences sp;
     SharedPreferences.Editor editor;
     String userType;
@@ -105,10 +93,6 @@ public class HomeActivity extends BaseActivity {
         card_product = findViewById(R.id.card_product);
         list_table = findViewById(R.id.list_table);
         view2 = findViewById(R.id.view2);
-
-
-
-
 
 
         sp = getSharedPreferences(Constant.SHARED_PREF_NAME, Context.MODE_PRIVATE);

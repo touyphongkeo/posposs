@@ -48,7 +48,7 @@ public class Get_imageshow extends BaseActivity {
     DatabaseAccess databaseAccess;
     String productName,prices;
 
-    EditText txt_qty;
+    EditText txt_qty,options;
     ImageView img_back,img_cart;
     private Context context;
 
@@ -81,6 +81,7 @@ public class Get_imageshow extends BaseActivity {
         txtCount = findViewById(R.id.txt_count);
         product_id = findViewById(R.id.product_id);
         barcode = findViewById(R.id.barcode);
+        options = findViewById(R.id.options);
         bprice = findViewById(R.id.bprice);
         category_name = findViewById(R.id.category_name);
         img_cart = findViewById(R.id.img_cart);
@@ -208,9 +209,10 @@ public class Get_imageshow extends BaseActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String sale_date = sdf.format(new Date());
         String txt_qtys = txt_qty.getText().toString();
+        String optionss = options.getText().toString();
         databaseAccess = DatabaseAccess.getInstance(Get_imageshow.this);
         databaseAccess.open();
-        int check = databaseAccess.addToCart2(sale_bill,sale_date,productID.toString(),Tbname,productName,prices,txt_qtys,productImage,custqty);
+        int check = databaseAccess.addToCart2(sale_bill,sale_date,productID.toString(),Tbname,productName,prices,txt_qtys,productImage,custqty,optionss);
         databaseAccess.open();
         int count=databaseAccess.getCartItemCount();
         if (count==0) {

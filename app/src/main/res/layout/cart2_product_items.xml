@@ -48,7 +48,6 @@
                 android:orientation="vertical"
                 android:paddingLeft="10dp">
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/tabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,7 +115,7 @@
                         android:id="@+id/img_delete"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        app:srcCompat="@drawable/ic_baseline_delete_24"
+                        app:srcCompat="@drawable/baseline_add_circle_24"
                         tools:ignore="VectorDrawableCompat" />
                 </LinearLayout>
 
@@ -134,9 +133,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:drawableLeft="@drawable/icon_minus"
-
                         android:paddingLeft="10dp"
                         android:paddingTop="5dp"
+                        android:textColor="#D84315"
                         android:paddingRight="10dp"
                         android:paddingBottom="5dp"
                         android:textSize="18sp"
@@ -148,7 +147,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="10dp"
-
+                        android:textColor="#D84315"
                         android:paddingTop="5dp"
                         android:paddingRight="10dp"
                         android:paddingBottom="5dp"
@@ -166,7 +165,7 @@
                         android:paddingRight="10dp"
                         android:paddingBottom="5dp"
                         android:text="+"
-                        android:textColor="#8F8D8C"
+                        android:textColor="#D84315"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
