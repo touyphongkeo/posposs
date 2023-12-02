@@ -77,7 +77,7 @@ public class Cart2Activity extends BaseActivity {
         etxt_amount = findViewById(R.id.etxt_amount);
         print = findViewById(R.id.print);
        namess.setText("ລາຍການອາຫານ ");
-
+      //dfdfdff
 
         etxt_customer_search.setText(Tbname);
 
